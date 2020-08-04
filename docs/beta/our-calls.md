@@ -69,7 +69,7 @@ Where: Discord Main voice channel.
 
 When: Scheduled as one-off events when asynchronous coordination won't cut it.
 
-# One on Ones
+# One-on-Ones
 
 What: Time scheduled with another contributor, often someone who has more context in the project than yourself, for the purpose of gaining context, asking questions, expressing concerns, getting assistance, or sharing interesting ideas.
 
