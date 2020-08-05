@@ -21,9 +21,9 @@ Note that only emojis in public channels will mint cred. Direct messages and rol
 
 ##### Special Channels:
 
-It's worth mentioning that in the SourceCred Discord has two special channels that effect how cred flows.
+It's worth mentioning that the SourceCred Discord has two special channels that effect how cred flows.
 
-The **\#didathing** channel is a channel that helps catch contributions that our algorithm is not complete enough to see yet. Any time you complete an action that is valuable to the community, but is not on Discourse or GitHub you can post in #didathing describing what you accomplished, tagging any other contributors involved, and linking to any useful notes/artifacts of your work. This allows the community to give emoji reactions and therefore mint some up-front cred for that contribution even if the algorithm couldn't see it. Post in #didathing whenever you make a contribution you know the algorithm won't see. Whenever you see someone post a contribution in #didathing which you feel was valuable, give it some emoji reactions! The flow and norms of #didathing will become more clear the longer you spend time with us.
+The **\#didathing** channel is a channel that helps catch contributions that our algorithm is not complete enough to see yet. Any time you complete an action that is valuable to the community, but is not on Discourse or GitHub you can post in #didathing describing what you accomplished, tagging any other contributors involved, and linking to any useful notes/artifacts of your work. This allows the community to give emoji reactions and therefore mint some up-front cred for that contribution even if the algorithm couldn't see it. Whenever you see someone post a contribution in #didathing which you feel was valuable, give it some emoji reactions! The flow and norms of #didathing will become more clear the longer you spend time with us.
 
 The **\#props** channel is a compliment to #didathing. Instead of posting about your own contribution, you post giving "props" to someone else in the community for their contribution which you know won't be seen by the algorithm. To do so, describe what they did and tag them in the message so that other community members can mint cred with emoji reactions.
 
@@ -49,7 +49,7 @@ As you learn the norms of the repo and start to take on some of your first issue
 
 The Discourse Forums are where we expand on ideas brought up in calls or on the Discord chats, etc. Using the forums to write full posts (aka "topics") provides more permanence and opportunity for feedback. Eventually, these ideas may become polished into documentation.
 
-Our Discourse is currently a bit of a jungle that requires a determined heart the first few times you venture in. While there are certainly some nuggets of gold to be found, the forums as a whole are difficult to parse through due to organization issues. Improvements are on the way, but until then you can use the "Latest" button to find the most recent topics or simply follow links you see in the Discord chats to individual posts.
+Our Discourse is currently a bit of a jungle that requires a determined heart the first few times you venture in. While there are certainly some nuggets of gold to be found, the forums as a whole are difficult to parse through due to organization issues. Improvements are on the way, but until then you can use the "Latest" button to find the most recent topics, or simply follow links you see in the Discord chats to individual posts.
 
 ##### Discourse and Cred:
 
@@ -63,7 +63,7 @@ Roam is a note-keeping platform that allows editing of the same note by differen
 
 ##### Roam and Cred:
 
-SourceCred does not currently have a plugin or integration for Roam and no cred is minted from Roam notes as of right now. Eventually we will be able to flow cred based on factors we track like meeting attendance, who hosted, who recorded, etc; and cred will be distributed retroactively based on data from those past meeting notes.
+SourceCred does not currently have a plugin or integration for Roam and no cred is minted from Roam notes as of right now. Eventually we will be able to flow cred based on factors we track, like meeting attendance, who hosted, who recorded, etc; and cred will be distributed retroactively based on data from those past meeting notes.
 
 ##### Using the Shortcuts to Navigate:
 
