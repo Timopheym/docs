@@ -2,9 +2,22 @@
 title: 🌱 Introduction
 description: An introduction to SourceCred's values and goals
 ---
+# Editor's Preface:
+
+This doc is still on the journey to be ready for the public eye. I (LB) as the latest author have left spaces to add content where I don't feel I'm able to fully communicate the point. As you edit this, add content in the sections where you have expertise. I've left descriptions of the content that should exist in *\[italicized brackets]* so that all you need to do is fill in that missing paragraph. 
+
+Let's not pre-publish this one until all the content exists and we can remove this "editor's preface" and all the italicized descriptions.
+
+\---
 
 SourceCred is an open-source tool for communities to measure and reward value
 creation.
+
+*\[get a better tagline]*
+
+# The Problem
+
+*\[Set up the problems we're trying to solve for in a compelling and relatable way that guides people to seeing some of the major systemic issues caused by financial maximization. Highlight the toxic mechanisms that most people take for granted in our society.]*
 
 We're building SourceCred because we believe the way we value things is broken.
 We value people based on their credentials or job titles, not based on the true
@@ -14,9 +27,24 @@ capture, not the broader effects they have on society. We value the environment
 in terms of the resources we can harvest from it, not on the role it plays in
 sustaining our collective existence.
 
+# Imagine a Different World
+
+*\[Describe the "new perspective on value" that SourceCred creates in an imaginative \*and\* concrete way. Take the reader on a small journey of what value could mean, and show examples of the impacts it would have on our future experience as individuals, communities, and societies. Paint a picture that gives hope and direction after being shown the problem of our current reality.]*
+
 SourceCred offers a new perspective on value. First, we don't think value is
 universal. It's contextual (intersubjective), and different communities will
-have different perspectives on what is or isn't valuable. For that reason,
+have different perspectives on what is or isn't valuable. 
+
+# The Solution of SourceCred
+
+*[Make the connection for the reader that SourceCred is the bridge from point A (today's society and its problems) to point B (the vision we painted a picture of).*\
+*This is where you can give a succinct description of SC's:*
+
+* *basic functions and features (the nuts and bolts like cred, grain, boosting, contribution graphs, et)*
+* *the connection between algorithm and a community's social norms which makes SourceCred more finessed, aligned, empowering, and less game-able.*
+* *the economic functions and effects which make SC a rational and intelligent choice that interacts well with the reality of money.]*
+
+For that reason,
 SourceCred is an open-source project which any community can set up, tweak, or
 reconfigure based on their own needs.
 
@@ -37,6 +65,10 @@ for [Boosting](concepts/boosting.md), which allows them to influence the
 Cred scores, and thus the community's priorities. Basically, Sponsors help make
 the community economically viable, and in gratitude the community gives
 sponsors some infuence over the community's goals, values, and priorities.
+
+# The Strategy
+
+*\[Give an overview of the overall short, medium, and long-term visions to the degree that is appropriate for a public-facing doc.]*
 
 In the short term, SourceCred is focused on supporting open-source crypto
 projects. Crypto projects are an ideal fit because they need a way to
@@ -70,7 +102,19 @@ bankers when we should be appreciating teachers. We "redevelop" rainforests
 when we should be stewarding them. We hope SourceCred will unlock the paradigm
 shift we need so that we can collectively re-orient.
 
+# Our Community
+
+\[Bring the reader around to the sensation of SourceCred as a functioning community with goals, not just a lofty idea and a lot of theories but no action. Highlight the sensation that we are an actual group of people working together successfully to bring this vision to reality.]
+
 If you'd like to [get involved](get-involved.md) we'd love to
 have you. We don't care about college degrees or credentials. There's no
 whiteboard interview. If you have skills, creativity, or empathy to offer, then
 come earn some Cred. 😉
+
+# Continued Reading:
+
+Get Involved with building SourceCred
+
+Learn about using SourceCred in your own project or community
+
+Do some more general reading
