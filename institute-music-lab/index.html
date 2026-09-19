@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#141d20">
+<meta name="description" content="The Institute: интерактивная лаборатория пространственной генеративной музыки. Реальные CC0-семплы, общий гармонический план, мягкие переходы.">
+<title>The Institute — Живая партитура · плавные аккорды</title>
+<style>
+:root{color-scheme:dark;--bg:#111a1d;--panel:#182326;--panel2:#1e2b2e;--line:#344346;--text:#e5e8de;--dim:#94a5a7;--gold:#d6be91;--green:#a4c5b0;--purple:#b5aed0;--red:#dcaf98}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 18% 0%,#263337 0,transparent 58%),var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;color:var(--text);background:#253236;border:1px solid #455355;border-radius:7px;padding:9px 13px;transition:background .2s,border-color .2s,opacity .2s}button:hover:not(:disabled){background:#334447;border-color:var(--green)}button:disabled{opacity:.48;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}button.primary{color:#172326;background:var(--green);border-color:var(--green);font-weight:650}button.primary:hover:not(:disabled){background:#bdd6bf}.active,button[aria-pressed=true]{background:#354b47;border-color:var(--green);color:#dbf1df}button.ghost{background:transparent}button.small{padding:5px 9px;font-size:12px}.wrap{max-width:1440px;margin:0 auto;padding:30px 34px 35px}header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:24px}.brand{display:flex;gap:12px;align-items:center;letter-spacing:.18em;font-size:11px;color:var(--gold)}.brandmark{height:36px;width:36px;border:1px solid #8c8a74;border-radius:50%;display:grid;place-items:center;letter-spacing:0;font-size:21px;color:var(--gold)}h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:34px;letter-spacing:-.025em;margin:15px 0 5px;line-height:1.15}.subtitle{color:var(--dim);margin:0;font-size:13px}.transport{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;padding-top:4px}.transport label{font-size:11px;color:var(--dim);display:block}.volume{width:130px}.volume input{width:100%}.clock-pill{border:1px solid var(--line);border-radius:30px;padding:6px 11px;color:var(--gold);font-size:11px;letter-spacing:.02em;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(0,1fr) 314px;gap:18px;align-items:start}.card{border:1px solid var(--line);border-radius:12px;background:linear-gradient(130deg,rgba(36,51,54,.76),rgba(24,35,38,.9));overflow:hidden}.cardhead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:11px;color:var(--dim);letter-spacing:.035em}.cardhead strong{color:var(--text);font-size:12px;font-weight:500}.map-wrap{position:relative;background:#172226}#map{width:100%;height:auto;aspect-ratio:960/565;display:block;touch-action:none;outline:none}#map:focus-visible{outline:1px solid var(--gold);outline-offset:-3px}.map-label{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;color:var(--dim);font-size:11px;background:#142124bb;padding:4px 8px;border-radius:4px}.onboard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#152023a8,#15202360);backdrop-filter:blur(3px);padding:20px}.onboard[hidden]{display:none}.intro{background:#182528f4;border:1px solid #56635b;border-radius:12px;padding:27px 30px;max-width:435px;width:100%;box-shadow:0 18px 45px #050a0c55}.intro .eyebrow{letter-spacing:.18em;color:var(--gold);font-size:10px}.intro h2{font:normal 28px/1.2 Georgia,serif;margin:11px 0 12px}.intro p{font-size:12px;color:#b5c1be;line-height:1.6;margin:0 0 18px}.intro .buttons{display:flex;flex-direction:column;gap:9px}.intro small{display:block;color:var(--dim);margin-top:14px;font-size:10px;line-height:1.6}.loadbar{height:3px;background:#354549;margin:14px 0 8px;overflow:hidden;border-radius:2px}.loadbar i{height:100%;width:0;display:block;background:var(--green);transition:width .3s}.map-tools{padding:12px 15px;display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);flex-wrap:wrap}.toolgroup{display:flex;gap:7px;align-items:center}.zones{display:flex;gap:8px;padding:12px 0 0;flex-wrap:wrap}.zones button{font-size:11px;flex:1;padding:8px 7px;white-space:nowrap;background:#1c292c;color:var(--dim);border-color:var(--line)}.zones button.current{color:var(--gold);border-color:#827f68;background:#2a3637}.side{padding:0 18px 18px}.side>.cardhead{margin:0 -18px 15px;padding:13px 18px}.section-label{font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 11px}.control{margin:0 0 16px}.control label{display:flex;justify-content:space-between;font-size:12px;gap:8px;margin-bottom:2px}.control output{color:var(--gold);font-variant-numeric:tabular-nums}.control small{display:block;font-size:10px;color:var(--dim);margin-top:3px}input[type=range]{appearance:none;background:transparent;height:16px;cursor:pointer;margin:3px 0;max-width:100%;width:100%;accent-color:var(--green)}input[type=range]::-webkit-slider-runnable-track{height:3px;background:#4c5b5c;border-radius:2px}input[type=range]::-moz-range-track{height:3px;background:#4c5b5c;border-radius:2px}input[type=range]::-webkit-slider-thumb{appearance:none;height:11px;width:11px;background:var(--green);border:2px solid #b9cfbf;border-radius:50%;margin-top:-4px}input[type=range]::-moz-range-thumb{height:9px;width:9px;background:var(--green);border:1px solid #b9cfbf;border-radius:50%}.focus-button{width:100%;display:flex;justify-content:space-between;text-align:left;padding:10px 12px}.focus-button span{font-size:12px}.focus-button b{font-weight:500;color:var(--gold)}.side-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.side-actions button{padding:8px 5px;font-size:11px}.hint{font-size:10px;color:var(--dim);line-height:1.5;margin:11px 0 0}.scene-note{margin-top:13px;min-height:41px;font-size:11px;color:#b4c7be;padding-left:10px;border-left:2px solid #728c7b}.soundbadge{font-size:10px;color:var(--green);white-space:nowrap;display:flex;align-items:center;gap:6px}.soundbadge:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}.soundbadge.warn{color:var(--red)}.mixer{margin-top:18px}.mix-head-right{display:flex;align-items:center;gap:14px;font-size:10px}.mixer-grid{display:grid;grid-template-columns:repeat(7,1fr);padding:18px 10px 14px;gap:0}.channel{padding:0 13px;border-right:1px solid var(--line);min-width:0}.channel:last-child{border-right:0}.channel-top{display:flex;align-items:center;gap:6px;font-size:12px;white-space:nowrap}.channel-top i{width:6px;height:6px;border-radius:50%;background:var(--ch);flex-shrink:0}.channel-role{height:28px;font-size:9px;color:var(--dim);margin:3px 0 8px;line-height:1.4}.level-number{font-size:23px;font-family:Georgia,serif;color:var(--ch);font-variant-numeric:tabular-nums;line-height:1.3}.level-number span{font:10px ui-sans-serif,sans-serif;color:var(--dim);padding-left:3px}.lane-meter{height:6px;margin:7px 0 12px;background:#354044;border-radius:2px;position:relative;overflow:hidden}.lane-meter i{position:absolute;inset:0 auto 0 0;background:var(--ch);width:0;opacity:.8}.lane-meter em{position:absolute;top:0;bottom:0;width:1px;background:#f7f5da;left:0;opacity:.65}.channel-bottom{display:flex;gap:5px;align-items:center;font-size:9px;color:var(--dim);margin-top:5px}.channel-bottom button{font-size:10px;padding:2px 6px;border-radius:4px}.channel-bottom .source{margin-left:auto;font-size:9px;white-space:nowrap}.channel input{height:12px}.channel input::-webkit-slider-thumb{height:8px;width:8px;margin-top:-2.5px;border:0;background:var(--ch)}.timeline{border-top:1px solid var(--line);padding:12px 18px 15px;display:grid;grid-template-columns:155px minmax(0,1fr);gap:12px;align-items:center}.timeline .label{color:var(--gold);font:18px Georgia,serif}.timeline small{display:block;font-size:9px;color:var(--dim);margin-top:2px}.timeline canvas{width:100%;height:46px;display:block}.bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:15px 2px;flex-wrap:wrap}.bottom p{font-size:10px;color:var(--dim);margin:0}.bottom-actions{display:flex;gap:8px;flex-wrap:wrap}.presets{display:flex;gap:8px;margin:9px 0 0;flex-wrap:wrap}.presets button{font-size:11px;background:transparent;padding:7px 12px;color:var(--dim);border-color:var(--line)}details{border:1px solid var(--line);border-radius:9px;margin-top:16px;background:#192427}summary{cursor:pointer;padding:13px 17px;color:var(--gold);font-size:12px}.details-inner{padding:0 18px 20px;color:#b9c4c4;font-size:12px;line-height:1.7}a{color:#bcd3c3;text-underline-offset:3px}code{color:var(--gold);font-size:11px}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.source-grid h3{color:var(--text);font-size:13px;margin:8px 0}.source-grid p{margin:8px 0}.asset-list{display:grid;gap:6px;margin-top:12px}.asset-row{display:grid;grid-template-columns:1fr auto;gap:12px;border-top:1px solid var(--line);padding-top:7px;font-size:11px;align-items:center}.asset-row small{display:block;color:var(--dim);font-size:10px;word-break:break-word}.asset-actions{display:flex;align-items:center;gap:8px}.asset-state{font-size:10px;color:var(--dim)}.status-line{padding:9px 13px;background:#342f27;border:1px solid #706047;border-radius:6px;color:#e0cfac;font-size:11px;margin:12px 0}.status-line[hidden]{display:none}.key{display:inline-block;border:1px solid #667375;border-radius:3px;padding:0 4px;font:10px ui-monospace,monospace;margin:0 1px;color:#bdc9c6}.recording{border-color:#cc987f!important;color:#efbaa0!important}.tiny{font-size:10px;color:var(--dim)}.settings-more{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}.settings-more label{font-size:11px;color:var(--dim)}.settings-more input{width:170px;vertical-align:middle}.footer{margin-top:24px;color:#76898b;font-size:10px;display:flex;justify-content:space-between;gap:15px}.onboard-progress{font-size:11px;color:var(--gold);min-height:18px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);border:1px solid #718c80;background:#223634f2;padding:10px 17px;border-radius:8px;color:#d9eadb;box-shadow:0 8px 30px #0003;font-size:12px;z-index:10;max-width:min(600px,90vw)}.toast[hidden]{display:none}.beat-dots{display:flex;gap:4px;align-items:center}.beat-dots i{width:4px;height:4px;background:#4c5b5d;border-radius:50%;display:block}.beat-dots i.on{background:var(--gold);box-shadow:0 0 8px #d6be9155}#levelReadout{font-variant-numeric:tabular-nums}#startSamples{min-height:41px}#transport{min-width:92px}.no-js{padding:20px;color:var(--gold)}
+@media(min-width:1300px){.wrap{padding-top:34px}.intro{max-width:465px;padding:30px 34px}h1{font-size:39px}.side{padding-bottom:20px}.control{margin-bottom:18px}}
+@media(max-width:1050px){.wrap{padding:22px}.layout{grid-template-columns:minmax(0,1fr) 275px}.channel{padding:0 8px}.channel-top{font-size:11px}.channel-bottom .source{font-size:8px}.channel-role{font-size:8px}.intro{padding:20px;max-width:355px}.intro h2{font-size:24px}.map-label{display:none}.clock-pill{display:none}.transport{gap:9px}.side{padding-left:14px;padding-right:14px}.side>.cardhead{margin-left:-14px;margin-right:-14px}.control{margin-bottom:13px}}
+@media(max-width:780px){.wrap{padding:18px 14px}header{gap:12px;margin-bottom:18px}h1{font-size:29px}.brand{font-size:9px;gap:8px;letter-spacing:.12em}.brandmark{width:28px;height:28px;font-size:17px}.subtitle{font-size:11px}.volume{width:95px}.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;padding-bottom:16px}.side>.cardhead{grid-column:1/-1}.side .section-label{display:none}.side>.control{margin-bottom:14px}.side>.focus-button,.side>.side-actions,.side>.hint,.side>.scene-note{grid-column:1/-1}.mixer-grid{grid-template-columns:repeat(4,1fr);row-gap:20px}.channel:nth-child(4){border-right:0}.channel-role{height:23px;font-size:9px}.channel-top{font-size:12px}.channel-bottom .source{font-size:9px}.source-grid{grid-template-columns:1fr}.timeline{grid-template-columns:115px 1fr}.mix-head-right{gap:7px}.intro{max-width:390px}.footer{flex-direction:column;gap:4px}}
+@media(max-width:470px){header{display:block}.transport{justify-content:flex-start;margin-top:16px}.transport .clock-pill{display:block}.volume{width:110px}h1{font-size:30px}.cardhead{padding:11px 12px}.cardhead strong{font-size:11px}.map-wrap{min-height:285px}#map{height:285px;aspect-ratio:auto}.intro{padding:17px;max-width:315px}.intro h2{font-size:23px;margin:6px 0}.intro p{font-size:11px;margin-bottom:10px}.intro small{font-size:9px;margin-top:8px}.intro .eyebrow{font-size:9px}.intro .buttons{gap:6px}.intro button{font-size:11px;padding:7px}.onboard{padding:10px}.zones{gap:5px}.zones button{font-size:9px}.map-tools{padding:10px}.mixer-grid{padding-left:4px;padding-right:4px}.channel{padding:0 7px}.channel-top{font-size:10px;gap:4px}.channel-role{font-size:8px}.channel-bottom{gap:3px}.channel-bottom .source{font-size:8px}.channel-bottom button{padding:2px 4px}.level-number{font-size:21px}.timeline{padding-left:12px;padding-right:12px}.mix-head-right #levelReadout{display:none}.side{column-gap:15px}.asset-row{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}.bottom-actions{width:100%}.bottom-actions button{flex:1;font-size:10px}}
+
+@media(min-width:781px){
+.wrap{padding-top:24px}header{margin-bottom:20px}h1{font-size:34px}
+#map{height:390px;aspect-ratio:auto}
+.side .control{margin-bottom:11px}.side .control small{font-size:10px;line-height:1.3}
+.side input[type=range]{height:13px;margin:2px 0}.side .hint{display:none}
+.side .scene-note{font-size:10px;min-height:32px;margin-top:11px}.side>.cardhead{margin-bottom:12px}
+.map-tools{padding:9px 13px}.zones{padding-top:8px}.zones button{padding:7px}.presets{margin-top:8px}
+.channel-role{height:auto;margin:2px 0 9px;line-height:1.3;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mixer-grid{padding:13px 8px 10px}.channel{padding:0 12px}.level-number{font-size:24px}.channel .lane-meter{margin:5px 0 8px}
+.timeline{padding:8px 18px 9px}.timeline canvas{height:39px}.mixer{margin-top:16px}
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<noscript><p class="no-js">Для интерактивной карты и генерации музыки нужен включённый JavaScript.</p></noscript>
+<div class="wrap">
+<header>
+  <div><div class="brand"><span class="brandmark" aria-hidden="true">♮</span><span>THE INSTITUTE <span style="color:var(--dim)"> / MUSIC LAB 01</span></span></div><h1>Место становится музыкой.</h1><p class="subtitle">Один музыкальный мир. Четыре пространства. Ни одного переключения трека.</p></div>
+  <div class="transport"><span class="clock-pill">72 BPM · 4/4</span><div class="volume"><label for="volume">ГРОМКОСТЬ <output id="volumeOut">52%</output></label><input type="range" id="volume" min="0" max="100" value="52" aria-label="Общая громкость"></div><button id="transport" disabled>Ⅱ Пауза</button></div>
+</header>
+<div class="layout">
+  <div>
+    <section class="card">
+      <div class="cardhead"><strong id="locationTitle">Центральный атриум</strong><span id="audioBadge" class="soundbadge">Готово к исследованию</span></div>
+      <div class="map-wrap">
+        <canvas id="map" width="960" height="565" tabindex="0" aria-label="Двумерная карта. Двигайтесь стрелками или WASD; нажмите на точку карты, чтобы идти к ней."></canvas>
+        <div class="map-label"><span class="key">W A S D</span> / <span class="key">↑ ↓ ← →</span> или нажмите на карту</div>
+        <div class="onboard" id="onboard">
+          <div class="intro"><div class="eyebrow">ПРОСТРАНСТВЕННАЯ МУЗЫКА</div><h2>Пройдитесь. Прислушайтесь.</h2><p>Комнаты меняют состав ансамбля. Состояние мира меняет его характер. Гармония и музыкальное время остаются общими.</p><div class="buttons"><button class="primary" id="startSamples">▶ Начать с настоящими семплами</button><button class="ghost" id="startSynth">Без интернета · синтетическая палитра</button></div><div class="loadbar" id="loadbar" hidden><i id="loadfill"></i></div><div class="onboard-progress" id="loadStatus" aria-live="polite"></div><small id="introFoot">6 WAV-записей · около 10 МБ · CC0<br>Семплы загружаются из открытых библиотек. Звук начнётся только после нажатия. Начните с небольшой громкости.</small></div>
+        </div>
+      </div>
+      <div class="map-tools"><div class="toolgroup"><button class="small" id="walk" aria-pressed="false">↝ Автопрогулка</button><button class="small ghost" id="fields" aria-pressed="false">Поля влияния</button></div><span class="tiny" id="positionReadout">x 0.50 · y 0.51</span></div>
+    </section>
+    <nav class="zones" aria-label="Перейти в комнату" id="zoneButtons"></nav>
+    <div class="presets"><button data-preset="quiet">Тихая оранжерея</button><button data-preset="night">Механическая ночь</button><button data-preset="alive">Институт оживает</button></div>
+  </div>
+  <aside class="card side">
+    <div class="cardhead"><strong>Состояние мира</strong><span>управляет музыкой</span></div>
+    <div class="control"><label for="warmth">Тепло оранжереи <output id="warmthOut">30%</output></label><input id="warmth" type="range" min="0" max="100" value="30"><small>Возвращает кларнет и калимбу</small></div>
+    <div class="control"><label for="power">Работа механизмов <output id="powerOut">30%</output></label><input id="power" type="range" min="0" max="100" value="30"><small>Подмешивает перкуссию и бас</small></div>
+    <div class="control"><label for="mystery">Чувство тайны <output id="mysteryOut">42%</output></label><input id="mystery" type="range" min="0" max="100" value="42"><small>Стекло и глубина реверберации</small></div>
+    <div class="control"><label for="activity">Насыщенность событий <output id="activityOut">25%</output></label><input id="activity" type="range" min="0" max="100" value="25"><small>Больше фраз, но не быстрее</small></div>
+    <div class="control"><label for="chordFade">Перетекание аккордов <output id="chordFadeOut">4.0 с</output></label><input id="chordFade" type="range" min="2" max="8" step=".5" value="4"><small>Общие ноты держатся · новые входят плавно<br>Длительность применяется со следующего аккорда</small></div>
+    <button id="focus" class="focus-button" aria-pressed="false"><span>◎ Сосредоточиться на задаче</span><b>выкл.</b></button>
+    <div class="side-actions"><button id="repair">Восстановить тепло</button><button id="discovery">Сделать открытие</button></div>
+    <p class="hint">Ремонт постепенно возвращает тепло. Открытие — короткий акцент на границе такта, с защитой от частых повторов.</p>
+    <div class="scene-note" id="sceneNote">Пространство меняет аранжировку, а не запускает отдельные песни.</div>
+  </aside>
+</div>
+<div class="status-line" id="warning" role="status" hidden></div>
+<section class="card mixer">
+  <div class="cardhead"><strong>Живой микшер</strong><div class="mix-head-right"><span id="levelReadout">−∞ dBFS</span><span class="beat-dots" id="beatDots" aria-label="Доли такта"><i></i><i></i><i></i><i></i></span><button class="small ghost" id="resetMix">Сбросить каналы</button></div></div>
+  <div class="mixer-grid" id="mixerGrid"></div>
+  <div class="timeline"><div><div class="label" id="harmonyLabel">Dm7</div><small id="phraseLabel">Непрерывная гармония · ожидает запуска</small><small>D · F · G · A · C</small></div><canvas id="timeline" width="900" height="56" aria-label="Последние музыкальные события по слоям"></canvas></div>
+</section>
+<div class="bottom"><p>Числа — уровень слоя. Полосы — его реальный сигнал. Ползунки — ручная поправка. M — выключить, S — слушать отдельно.</p><div class="bottom-actions"><button class="small ghost" id="newSeed">Новая вариация</button><button class="small ghost" id="record" disabled>● Записать</button><button class="small ghost" id="exportState">Сохранить настройки</button><button class="small ghost" id="offline" disabled>HTML с семплами</button></div></div>
+<details id="sources">
+  <summary>Звуковая палитра, источники и устройство демо</summary>
+  <div class="details-inner">
+    <div class="source-grid"><div><h3>Оригинальная партитура, открытые инструменты</h3><p>Направление — камерная электроника: дыхание акустического инструмента, деревянные щипки, стекло, мягкий бас и небольшие механические детали. Фрагментов записей Floex, Tomáš Dvořák, Digitonal или саундтреков здесь нет.</p><p><a href="https://versilian-studios.com/vsco-community/" target="_blank" rel="noopener noreferrer">VSCO 2 Community Edition</a> — кларнет и тихое пианино. Записи: Sam Gossner и Simon Dalzell; обработка исходной библиотеки: Elan Hickler / Soundemote.</p><p><a href="https://versilian-studios.com/vcsl/" target="_blank" rel="noopener noreferrer">Versilian Community Sample Library</a> — танзанийская калимба и резонанс винного бокала. Обе библиотеки опубликованы под <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>. Коммиты и имена файлов зафиксированы в манифесте.</p><p>Дыхание, низкий пульс, щелчки и реверберация синтезируются. В автономном режиме без семплов синтез заменяет также четыре акустических тембра. Интерфейс всегда показывает, что используется.</p></div>
+    <div><h3>Как сохраняется музыкальная связность</h3><p>Один транспорт: <b>72 BPM, 4/4</b>. Гармония меняется раз в четыре такта, а не на границе комнаты. Общие ноты продолжают звучать без повторной атаки; остальные плавно перекрываются за 2–8 секунд без затухания фона в тишину. Все ноты принадлежат общей пентатонической палитре D–F–G–A–C. Мелодия использует подготовленные контуры с ограниченными вариациями и паузами.</p><p>Влияния комнат непрерывны; уровни сглаживаются. Суммарная энергия каналов ограничена. Ноты получают мягкие огибающие, а реверберация — затухающий хвост. «Сосредоточиться» прежде всего убирает музыкальную активность.</p><p>Это экспериментальный аранжировщик, не обученная модель и не готовый саундтрек. Правила ограничивают тональные конфликты, но музыкальный вкус и отсутствие утомления оцениваются прослушиванием.</p><p>Реализация: чистый <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques" target="_blank" rel="noopener noreferrer">Web Audio API</a>, без фреймворков, аккаунтов, аналитики и сервера. Для получения WAV браузер обращается к GitHub, при ошибке — к jsDelivr.</p></div></div>
+    <div class="asset-list" id="assetList"></div>
+    <div class="settings-more"><label>Плавность микшера: <output id="transitionOut">5.5 с</output><br><input id="transition" type="range" min="2" max="12" step=".5" value="5.5"></label><div><button class="small" id="retrySamples">Загрузить / повторить загрузку семплов</button><p class="tiny">Загрузка не заменяет тембры посреди звучащей фразы: для смены палитры воспроизведение будет приостановлено.</p></div></div>
+    <p class="tiny">После загрузки всех WAV кнопка «HTML с семплами» создаёт автономный файл. В исходном небольшом HTML аудиофайлы не встроены. Если браузер блокирует их загрузку, синтетическая палитра остаётся доступной. При скрытии вкладки воспроизведение ставится на паузу.</p>
+  </div>
+</details>
+<footer class="footer"><span>THE INSTITUTE / Music Lab v2 · непрерывная гармония / 19.09.2026</span><span>Код и оригинальные музыкальные правила: MIT · исходные инструментальные записи: CC0</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script id="embedded-samples" type="application/json">{}</script>
+<script id="sample-manifest" type="application/json">{
+  "version": 1,
+  "checked": "2026-09-19",
+  "license": "CC0-1.0",
+  "note": "Remote WAVs are downloaded on request, not bundled in the initial HTML. Pinned upstream commits and blob hashes prevent accidental source drift. Use the in-app offline export or build_offline.py to embed them.",
+  "samples": [
+    {"id":"clarinet-low","instrument":"clarinet","name":"Clarinet · D4 · soft sustain","repo":"sgossner/VSCO-2-CE","ref":"440300901dfe9275fd84e0b7763af1f8443ae62e","path":"Woodwinds/Clarinet/susLong/DCClar_susLong_D3_v1_rr1_sum.wav","root":62,"blob":"8f3f973a0d69c3c721f1eb8b27f208c80bd17ceb","bytes":2230948,"rootEvidence":"ClarinetSus.sfz, SFZ branch: pitch_keycenter=62. VSCO filenames use middle C=C3."},
+    {"id":"clarinet-high","instrument":"clarinet","name":"Clarinet · Bb4 · soft sustain","repo":"sgossner/VSCO-2-CE","ref":"440300901dfe9275fd84e0b7763af1f8443ae62e","path":"Woodwinds/Clarinet/susLong/DCClar_susLong_A#3_v1_rr1_sum.wav","root":70,"blob":"f8db827226f661779d8965737fa0850d8275be9a","bytes":1599888,"rootEvidence":"ClarinetSus.sfz: pitch_keycenter=70."},
+    {"id":"piano-low","instrument":"piano","name":"Upright piano · A3 · soft","repo":"sgossner/VSCO-2-CE","ref":"440300901dfe9275fd84e0b7763af1f8443ae62e","path":"Keys/Upright Piano/Player_dyn1_rr1_018.wav","root":57,"blob":"90745e10b1d8774db29a9817a218277102cd998b","bytes":3002200,"rootEvidence":"Keys/Upright Piano/MappingChart.txt: 018=57."},
+    {"id":"piano-high","instrument":"piano","name":"Upright piano · A4 · soft","repo":"sgossner/VSCO-2-CE","ref":"440300901dfe9275fd84e0b7763af1f8443ae62e","path":"Keys/Upright Piano/Player_dyn1_rr1_024.wav","root":69,"blob":"6350b1cf0a614fe0920ad212e807d4575fcf71bd","bytes":2222998,"rootEvidence":"Keys/Upright Piano/MappingChart.txt: 024=69."},
+    {"id":"kalimba","instrument":"kalimba","name":"Tanzanian kalimba · plucked tine","repo":"sgossner/VCSL","ref":"c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e","path":"Idiophones/Plucked Idiophones/Kalimba, Tanzania/MBira3_pluck_Main_D4_k19_50_100_rr2.wav","root":74,"blob":"244fccedb259602964ebfaef12477c6fc3692922","bytes":605566,"rootEvidence":"Filename pitch class D; octave and fine tuning estimated at load (same pitch class only)."},
+    {"id":"glass","instrument":"glass","name":"Wine glass · rubbed resonance release","repo":"sgossner/VCSL","ref":"c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e","path":"Idiophones/Friction Idiophones/Wine Glasses/Releases/Slow/glass4_D5_Slow_2_Decay.wav","root":86,"blob":"8a9feddf136dd457a6fd80d2654d467d81f134f9","bytes":432266,"rootEvidence":"Filename pitch class D; octave and fine tuning estimated at load (same pitch class only)."}
+  ]
+}
+</script>
+<script>/* The Institute — Music Lab. Original generative score and implementation.
+ * Pure musical/spatial model. No browser dependency: also used by tests.
+ * SPDX-License-Identifier: MIT
+ */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.MusicCore = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const BPM = 72, BEAT = 60 / BPM, STEP = BEAT / 4, BAR = BEAT * 4;
+  const clamp = (n, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, n));
+  const mix = (a, b, t) => a + (b - a) * t;
+  const smooth = (a, b, dt, tau) => mix(a, b, 1 - Math.exp(-dt / Math.max(.05, tau)));
+  const pc = n => ((Math.round(n) % 12) + 12) % 12;
+  const PITCH_CLASSES = [0, 2, 5, 7, 9]; // D-minor pentatonic: D F G A C.
+  const ZONES = [
+    {id:'greenhouse', name:'Оранжерея', subtitle:'дыхание · калимба', x:.22, y:.29, radius:.34, color:'#91b89e'},
+    {id:'observatory', name:'Обсерватория', subtitle:'стекло · пространство', x:.77, y:.25, radius:.32, color:'#a8a7ce'},
+    {id:'archive', name:'Архив', subtitle:'пианино · память', x:.24, y:.77, radius:.32, color:'#c6b18a'},
+    {id:'workshop', name:'Мастерская', subtitle:'механика · пульс', x:.77, y:.75, radius:.33, color:'#bf9576'}
+  ];
+  const LAYERS = [
+    {id:'air', name:'Дыхание', role:'мягкая гармоническая основа', color:'#84969c'},
+    {id:'clarinet', name:'Кларнет', role:'редкие фразы, с паузами', color:'#99c5af'},
+    {id:'piano', name:'Пианино', role:'тихие аккорды и ответы', color:'#cab894'},
+    {id:'kalimba', name:'Калимба', role:'деревянные музыкальные петли', color:'#adbb7e'},
+    {id:'glass', name:'Стекло', role:'длинные резонансы', color:'#b0a7ce'},
+    {id:'mechanics', name:'Механика', role:'приглушённые щелчки', color:'#c7997d'},
+    {id:'bass', name:'Низкий пульс', role:'тепло и опора', color:'#82adb3'}
+  ];
+  // All voicings share a pentatonic vocabulary. No parallel, independent chord engines.
+  const HARMONIES = [
+    {name:'Dm7', label:'ре минор · мягкая опора', bass:38, pads:[50,57,60], tones:[62,65,69,72]},
+    {name:'F6', label:'фа · немного света', bass:41, pads:[53,57,62], tones:[65,69,72,74]},
+    {name:'C6/9 · no 3', label:'до · открытое пространство', bass:36, pads:[50,55,57], tones:[60,62,67,69]},
+    {name:'Gsus2/4', label:'соль · ожидание', bass:43, pads:[50,55,60], tones:[62,67,69,72]}
+  ];
+  // Original phrase contours: [sixteenth-step in a two-bar cell, scale degree, duration in beats].
+  const MOTIFS = [
+    [[2,2,1.1],[9,1,.85],[18,0,1.7],[27,2,.7]],
+    [[1,0,1.5],[12,1,.7],[20,3,1.2]],
+    [[4,3,1.0],[11,2,1.1],[24,1,1.65]],
+    [[2,1,1.3],[10,0,.8],[18,2,1.7],[28,1,.65]],
+    [[3,2,1.3],[14,3,.7],[22,2,1.35]],
+    [[0,0,1.4],[10,2,.9],[21,1,1.7]]
+  ];
+  const DEFAULT = {warmth:.30, power:.30, mystery:.42, activity:.25, focus:0, volume:.52, transition:5.5, chordFade:4.0};
+  function rand(seed, a = 0, b = 0) {
+    let x = (seed ^ Math.imul(a + 17, 0x9e3779b1) ^ Math.imul(b + 31, 0x85ebca6b)) >>> 0;
+    x = Math.imul(x ^ (x >>> 16), 0x7feb352d); x = Math.imul(x ^ (x >>> 15), 0x846ca68b);
+    return ((x ^ (x >>> 16)) >>> 0) / 4294967296;
+  }
+  function fields(x, y) {
+    const values = ZONES.map(z => Math.exp(-2.8 * ((x-z.x)**2 + ((y-z.y)*.78)**2) / (z.radius*z.radius)));
+    const norm = Math.sqrt(values.reduce((s,v) => s+v*v, 0)) || 1;
+    const out = {}; ZONES.forEach((z,i) => out[z.id] = values[i] / norm);
+    return out;
+  }
+  function gains(pos, state) {
+    const f = fields(pos.x, pos.y), w=state.warmth, p=state.power, m=state.mystery, a=state.activity;
+    const focus = clamp(state.focus);
+    const v = {
+      air:.30 + .08*m,
+      clarinet:(.10 + .69*f.greenhouse + .13*f.archive) * (.55+.36*w) * (1-.71*focus),
+      piano:(.16 + .58*f.archive + .13*f.workshop) * (1-.42*focus),
+      kalimba:(.06 + .57*f.greenhouse + .18*f.workshop) * (.48+.43*w+.16*a) * (1-.64*focus),
+      glass:(.04 + .59*f.observatory + .13*f.greenhouse) * (.42+.55*m) * (1-.32*focus),
+      mechanics:(.015 + .63*f.workshop + .14*f.observatory) * (.12+.74*p) * (.40+.58*a) * (1-.78*focus),
+      bass:(.11+.21*p+.14*w) * (1-.34*focus)
+    };
+    // Constant-energy ceiling: overlapping fields cannot double the music level.
+    const energy = Math.sqrt(Object.values(v).reduce((s,n)=>s+n*n,0));
+    const norm = Math.max(1,energy/.89);
+    for (const key of Object.keys(v)) v[key] /= norm;
+    return v;
+  }
+  function harmonyAt(step) { return HARMONIES[Math.floor(step/64)%HARMONIES.length]; }
+  function zoneAt(pos) { const f=fields(pos.x,pos.y); return ZONES.reduce((a,b)=>f[a.id]>f[b.id]?a:b); }
+  function harmonyEvent(step, state = DEFAULT) {
+    const h = harmonyAt(step);
+    const requested = Number(state.chordFade);
+    return {layer:'air', kind:'harmony', note:h.pads[0], notes:[...h.pads], amp:.25,
+      dur:64*STEP, crossfade:clamp(Number.isFinite(requested)?requested:DEFAULT.chordFade,2,8)};
+  }
+  function planStep(step, state, seed) {
+    const bar=Math.floor(step/16), sub=step%16, h=harmonyAt(step), events=[];
+    const phrase=Math.floor(step/64), cell=Math.floor(step/32), rel=step%32;
+    const activity=clamp(state.activity), focus=clamp(state.focus);
+    const add=(layer,note,amp,dur,extra={})=>events.push({layer,note,amp,dur,...extra});
+    // One persistent bed. Common pitches keep sounding without retriggering;
+    // only outgoing/incoming pitches crossfade on the four-bar boundary.
+    if(step%64===0) events.push(harmonyEvent(step,state));
+    // Low anchor: only one root, long soft attack, no kick/bass race.
+    if(sub===0 && (bar%2===0 || state.power>.6)) add('bass',h.bass,.36,2.4*BEAT,{fade:.15});
+    // Sparse, voice-led keyboard voicing in a lower register than the lead.
+    if(sub===0 && bar%2===0) [h.tones[0]-12,h.tones[1]-12,h.tones[2]-12].forEach((n,i)=>add('piano',n,.27-i*.025,2.5*BEAT,{delay:i*.07}));
+    // An entire two-bar cell is sometimes a breath. Randomness is seeded and bounded.
+    const restCell = cell%4===3 || (focus>.65 && cell%2===1);
+    const motif=MOTIFS[Math.floor(rand(seed,phrase,91)*MOTIFS.length)];
+    if(!restCell){
+      for(const [at,degree,dur] of motif){
+        if(rel!==at) continue;
+        if(rand(seed,cell,at)> .66+.28*activity-.23*focus) continue;
+        const n=h.tones[degree];
+        add('clarinet',n,.31,dur*BEAT,{delay:(rand(seed,step,1)-.5)*.014});
+      }
+    }
+    // Call-and-response: no keyboard response exactly on a clarinet attack.
+    if((sub===6 || sub===14) && bar%2===1 && !events.some(e=>e.layer==='clarinet') && rand(seed,step,3)<.23+.25*activity-.13*focus){
+      add('piano',h.tones[(bar+(sub===6?1:2))%4],.20,1.3*BEAT);
+    }
+    // Repeated four-bar cell, with modest omissions, not random walk noodling.
+    if([0,6,10].includes(sub) && !(focus>.75 && sub!==0)) {
+      const chance=.40+.48*activity-.18*focus;
+      if(rand(seed,step,7)<chance){
+        const ix=([0,6,10].indexOf(sub)+bar)%4;
+        add('kalimba',h.tones[ix]+12,.20,1.35*BEAT,{delay:.018});
+      }
+    }
+    // Long ringing texture: no rapid bell ostinato or high repeated melody.
+    if(sub===8 && bar%2===0 && rand(seed,bar,8)<.47+.34*state.mystery) add('glass',h.tones[2]+12,.18,2.1*BEAT,{fade:.08});
+    // Percussion is unpitched by role; energy/focus mostly affects gain, not tempo.
+    if([0,7,8,14].includes(sub) && rand(seed,step,12)<.28+.60*activity) add('mechanics',0,sub===0?.33:.16,.18,{kind:sub===0?'wood':'tick'});
+    return events;
+  }
+  function validateEvent(e){
+    if(e.layer==='mechanics')return true;
+    if(!Number.isFinite(e.note)||!PITCH_CLASSES.includes(pc(e.note)))return false;
+    if(e.kind==='harmony')return e.layer==='air'&&Array.isArray(e.notes)&&e.notes.length===3
+      &&new Set(e.notes).size===3&&e.notes.every(n=>Number.isFinite(n)&&PITCH_CLASSES.includes(pc(n)));
+    return true;
+  }
+  return {BPM,BEAT,STEP,BAR,clamp,mix,smooth,pc,PITCH_CLASSES,ZONES,LAYERS,HARMONIES,DEFAULT,rand,fields,gains,harmonyAt,zoneAt,harmonyEvent,planStep,validateEvent};
+});
+</script>
+<script>/* Web Audio engine — all musical onsets use AudioContext time, not UI timers.
+ * SPDX-License-Identifier: MIT */
+(function(root){
+'use strict';
+const C=root.MusicCore, EPS=.00001;
+const mtof=n=>440*Math.pow(2,(n-69)/12);
+function fade(param,target,time,tau=.7){
+  // cancelAndHold is not universal. Do not continually cancel curves here:
+  // setTargetAtTime interrupts the previous target continuously by specification.
+  param.setTargetAtTime(Math.max(0,target),time,Math.max(.025,tau));
+}
+function noiseBuffer(ctx,length,seed){
+  const b=ctx.createBuffer(1,Math.round(ctx.sampleRate*length),ctx.sampleRate),d=b.getChannelData(0);
+  let s=seed>>>0, last=0;
+  for(let i=0;i<d.length;i++){s=(Math.imul(1664525,s)+1013904223)>>>0;const w=s/2147483648-1;last=.97*last+.03*w;d[i]=last*3.5;}
+  return b;
+}
+function syntheticSample(ctx,type){
+  const root=type==='glass'?74:60, freq=mtof(root), length=type==='clarinet'?5.0:5.5;
+  const b=ctx.createBuffer(1,Math.ceil(length*ctx.sampleRate),ctx.sampleRate), d=b.getChannelData(0);
+  let ns=type.length*931,lp=0;
+  for(let i=0;i<d.length;i++){
+    const t=i/ctx.sampleRate, p=2*Math.PI*freq*t;
+    ns=(Math.imul(ns,1664525)+1013904223)>>>0;const n=ns/2147483648-1;lp=.94*lp+.06*n;
+    let y=0;
+    if(type==='clarinet'){
+      const env=Math.min(1,t/.12)*Math.min(1,(length-t)/.25);
+      const vib=.017*Math.sin(2*Math.PI*4.6*t)*Math.min(1,t/.8);
+      y=(Math.sin(p+vib)+.27*Math.sin(3*p+vib)+.12*Math.sin(5*p)+.045*Math.sin(7*p))*.42*env*(.92+.025*Math.sin(2*Math.PI*.73*t))+lp*.008*env;
+    }else if(type==='piano'){
+      y=(Math.sin(p)*Math.exp(-t/2.7)+.34*Math.sin(2*p+.12)*Math.exp(-t/1.2)+.15*Math.sin(3*p+.2)*Math.exp(-t/.5)+.07*Math.sin(4*p)*Math.exp(-t/.2))*.52*Math.min(1,t/.005);
+      y+=lp*.023*Math.exp(-t/.035);
+    }else if(type==='kalimba'){
+      y=(Math.sin(p)*Math.exp(-t/.85)+.15*Math.sin(4*p)*Math.exp(-t/.085)+.06*Math.sin(8*p)*Math.exp(-t/.035))*.65*Math.min(1,t/.003);
+      y+=lp*.018*Math.exp(-t/.025);
+    }else{
+      y=(Math.sin(p)+.13*Math.sin(2*p)+.035*Math.sin(4*p))*.5*Math.exp(-t/2.1)*Math.min(1,t/.09)*(1+.035*Math.sin(2*Math.PI*3*t));
+    }
+    d[i]=y;
+  }
+  return {buffer:b,root,source:'synth',offset:0,normalization:1};
+}
+function estimatePitch(buffer,nominal){
+  // Constrained YIN estimate. Never invent a new pitch class from a noisy sample.
+  // Multiple windows handle breath/noise attacks. An ambiguous estimate is ignored.
+  const src=buffer.getChannelData(0), hop=Math.max(1,Math.floor(buffer.sampleRate/12000));
+  const sr=buffer.sampleRate/hop,N=1024,tauMax=Math.min(300,Math.floor(sr/65)),est=[];
+  for(const seconds of [.13,.31,.58]){
+    const start=Math.floor(seconds*buffer.sampleRate);
+    if(start+(N+tauMax)*hop>=src.length) continue;
+    const x=new Float64Array(N+tauMax);let mean=0;
+    for(let i=0;i<x.length;i++){x[i]=src[start+i*hop];mean+=x[i];} mean/=x.length;
+    for(let i=0;i<x.length;i++)x[i]-=mean;
+    const diff=new Float64Array(tauMax+1);let cumulative=0;
+    diff[0]=1;
+    for(let tau=1;tau<=tauMax;tau++){
+      let sum=0;for(let j=0;j<N;j++){const v=x[j]-x[j+tau];sum+=v*v;}
+      cumulative+=sum;diff[tau]=cumulative>1e-15?sum*tau/cumulative:1;
+    }
+    let tau=0;
+    for(let t=4;t<tauMax-1;t++) if(diff[t]<.16){while(t+1<tauMax&&diff[t+1]<diff[t])t++;tau=t;break;}
+    if(!tau)continue;
+    const left=diff[tau-1],middle=diff[tau],right=diff[tau+1];
+    const denom=2*(2*middle-right-left), refined=tau+(Math.abs(denom)>1e-10?(right-left)/denom:0);
+    const midi=69+12*Math.log2((sr/refined)/440);
+    const octave=nominal+12*Math.round((midi-nominal)/12);
+    if(Math.abs(midi-octave)<.60 && Math.abs(octave-nominal)<=24)est.push(midi);
+  }
+  if(!est.length)return {root:nominal,estimated:false};
+  est.sort((a,b)=>a-b);return {root:est[Math.floor(est.length/2)],estimated:true};
+}
+function prepareSample(ctx,buffer,meta){
+  let peak=0,energy=0,count=0;
+  const d=buffer.getChannelData(0), scan=Math.min(d.length,Math.floor(buffer.sampleRate*3));
+  for(let i=0;i<d.length;i+=2)peak=Math.max(peak,Math.abs(d[i]));
+  for(let i=Math.floor(buffer.sampleRate*.08);i<scan;i+=4){energy+=d[i]*d[i];count++;}
+  const rms=Math.sqrt(energy/Math.max(1,count));
+  const normalization=Math.min(12,.72/Math.max(.0001,peak),.18/Math.max(.0001,rms));
+  let first=0;const threshold=Math.max(.0001,peak*.008),stop=Math.min(d.length,buffer.sampleRate*.6);
+  for(let i=0;i<stop;i++)if(Math.abs(d[i])>threshold){first=i;break;}
+  const tuning=estimatePitch(buffer,meta.root);
+  return {buffer,root:tuning.root,estimated:tuning.estimated,normalization,offset:Math.max(0,first/buffer.sampleRate-.012),source:'sample',meta};
+}
+class Engine{
+  constructor(ctx,bank={}){
+    this.ctx=ctx;this.bank=bank;this.synthetic={};this.active=new Set();this.history=[];this.layerNodes={};this.lastMeter={};
+    this.bedVoices=new Map();this.bedStarted=false;this.bedTransition=null;
+    this.noise=noiseBuffer(ctx,4.0,5623);this.tickNoise=noiseBuffer(ctx,.35,9931);
+    for(const id of ['clarinet','piano','kalimba','glass'])this.synthetic[id]=syntheticSample(ctx,id);
+    this.sum=ctx.createGain();this.tone=ctx.createBiquadFilter();this.tone.type='lowpass';this.tone.frequency.value=7200;this.tone.Q.value=.35;
+    this.hp=ctx.createBiquadFilter();this.hp.type='highpass';this.hp.frequency.value=38;this.hp.Q.value=.5;
+    this.compressor=ctx.createDynamicsCompressor();this.compressor.threshold.value=-18;this.compressor.knee.value=22;this.compressor.ratio.value=2.6;this.compressor.attack.value=.018;this.compressor.release.value=.5;
+    this.saturator=ctx.createWaveShaper();const curve=new Float32Array(4096);
+    for(let i=0;i<curve.length;i++){const x=(i/(curve.length-1))*2-1;curve[i]=Math.tanh(1.3*x)/1.3;}
+    this.saturator.curve=curve;this.saturator.oversample='2x';
+    this.master=ctx.createGain();this.master.gain.value=0;
+    this.outputMeter=ctx.createAnalyser();this.outputMeter.fftSize=1024;this.meterData=new Float32Array(1024);
+    this.sum.connect(this.tone);this.tone.connect(this.hp);this.hp.connect(this.compressor);this.compressor.connect(this.saturator);this.saturator.connect(this.master);this.master.connect(this.outputMeter);this.outputMeter.connect(ctx.destination);
+    this.reverb=ctx.createConvolver();this.reverb.buffer=this.makeImpulse(2.65);
+    this.reverbTone=ctx.createBiquadFilter();this.reverbTone.type='lowpass';this.reverbTone.frequency.value=3300;
+    this.reverbGain=ctx.createGain();this.reverbGain.gain.value=.30;
+    this.reverb.connect(this.reverbTone);this.reverbTone.connect(this.reverbGain);this.reverbGain.connect(this.sum);
+    for(const layer of C.LAYERS){
+      const input=ctx.createGain(), gain=ctx.createGain(), pan=ctx.createStereoPanner(), meter=ctx.createAnalyser(),send=ctx.createGain();
+      gain.gain.value=0;meter.fftSize=256;meter.smoothingTimeConstant=.8;
+      input.connect(gain);gain.connect(pan);pan.connect(meter);meter.connect(this.sum);pan.connect(send);send.connect(this.reverb);
+      send.gain.value=({air:.65,clarinet:.37,piano:.35,kalimba:.29,glass:.55,mechanics:.12,bass:.06})[layer.id];
+      this.layerNodes[layer.id]={input,gain,pan,meter,send,data:new Float32Array(256)};
+    }
+    this.recordDestination=null;
+    if(typeof ctx.createMediaStreamDestination==='function'){
+      this.recordDestination=ctx.createMediaStreamDestination();this.master.connect(this.recordDestination);
+    }
+  }
+  makeImpulse(seconds){
+    const b=this.ctx.createBuffer(2,Math.floor(this.ctx.sampleRate*seconds),this.ctx.sampleRate);
+    for(let c=0;c<2;c++){
+      let s=1597+c*997, last=0;const d=b.getChannelData(c);
+      for(let i=0;i<d.length;i++){
+        s=(Math.imul(1664525,s)+1013904223)>>>0;const n=s/2147483648-1;last=.64*last+.36*n;
+        const t=i/this.ctx.sampleRate;d[i]=last*Math.exp(-t/ .68)*Math.min(1,t/.018);
+      }
+    }
+    return b;
+  }
+  track(source,nodes,when){
+    this.active.add(source);
+    source.onended=()=>{this.active.delete(source);try{source.disconnect();for(const n of nodes)n.disconnect();}catch(_){};};
+    if(Number.isFinite(when))source.stop(when);
+  }
+  envelope(g,t,amp,attack,hold,release){
+    g.gain.setValueAtTime(EPS,t);g.gain.linearRampToValueAtTime(Math.max(EPS,amp),t+attack);
+    g.gain.setValueAtTime(Math.max(EPS,amp),t+attack+hold);
+    g.gain.exponentialRampToValueAtTime(EPS,t+attack+hold+release);
+  }
+  bedCurve(param, amp, time, seconds, incoming){
+    // Complementary equal-power envelopes: sin²(theta) + cos²(theta) = 1.
+    // Unlike the old exponential release, neither chord dies before its successor.
+    const curve=new Float32Array(257);
+    for(let i=0;i<curve.length;i++){
+      const phase=(i/(curve.length-1))*Math.PI/2;
+      curve[i]=amp*(incoming?Math.sin(phase):Math.cos(phase));
+    }
+    curve[0]=incoming?0:amp;curve[curve.length-1]=incoming?amp:0;
+    param.setValueCurveAtTime(curve,time,seconds);
+  }
+  createBedVoice(note,amp,time,seconds){
+    const ctx=this.ctx,env=ctx.createGain(),filter=ctx.createBiquadFilter();
+    env.gain.value=0;filter.type='lowpass';filter.frequency.value=1500;filter.Q.value=.2;
+    env.connect(filter);filter.connect(this.layerNodes.air.input);
+    const voice={note,amp,env,oscillators:[]};
+    // Same two-oscillator colour and tuning as before; no pitch slides.
+    for(let i=0;i<2;i++){
+      const osc=ctx.createOscillator(),level=ctx.createGain();osc.type='sine';
+      osc.frequency.value=mtof(note)*(i?2:1);osc.detune.value=i?1.5:-1.5;
+      level.gain.value=i?.18:.82;osc.connect(level);level.connect(env);
+      this.track(osc,i===1?[level,env,filter]:[level]);
+      osc.start(time);voice.oscillators.push(osc);
+    }
+    this.bedCurve(env.gain,amp,time,seconds,true);
+    return voice;
+  }
+  setHarmony(notes,time,amp=.25,seconds=C.DEFAULT.chordFade,duration=64*C.STEP){
+    const t=Math.max(this.ctx.currentTime+.003,time);
+    const fadeSeconds=C.clamp(Number.isFinite(seconds)?seconds:C.DEFAULT.chordFade,.08,8);
+    const wanted=new Set(notes),level=amp*.68,held=[],incoming=[],outgoing=[];
+    for(const [note,voice] of this.bedVoices){
+      if(wanted.has(note)){held.push(note);continue;}
+      // Scheduled only after the incoming envelope has completed: fade <= 8 s,
+      // whereas the harmonic period is 13.333 s. The old voice is fully present
+      // until this exact boundary, then its successor fades in alongside it.
+      this.bedCurve(voice.env.gain,voice.amp,t,fadeSeconds,false);
+      for(const osc of voice.oscillators)osc.stop(t+fadeSeconds+.025);
+      this.bedVoices.delete(note);outgoing.push(note);
+    }
+    for(const note of notes){
+      if(this.bedVoices.has(note))continue; // Preserve phase, envelope and sustain.
+      const voice=this.createBedVoice(note,level,t,this.bedStarted?fadeSeconds:Math.min(1.65,fadeSeconds));
+      this.bedVoices.set(note,voice);incoming.push(note);
+    }
+    this.bedTransition={time:t,duration:this.bedStarted?fadeSeconds:Math.min(1.65,fadeSeconds),held,incoming,outgoing};
+    this.bedStarted=true;
+    for(const note of notes)this.history.push({time:t,layer:'air',note,amp,duration,tied:held.includes(note)});
+    if(this.history.length>512)this.history.splice(0,128);
+  }
+  choose(instrument,note){
+    const variants=this.bank[instrument]||[];
+    if(!variants.length)return this.synthetic[instrument];
+    return variants.reduce((a,b)=>Math.abs(a.root-note)<Math.abs(b.root-note)?a:b);
+  }
+  play(e,time){
+    if(!C.validateEvent(e))throw new Error('Pitch outside the shared harmony vocabulary');
+    const t=Math.max(this.ctx.currentTime+.003,time+(e.delay||0));
+    const lane=this.layerNodes[e.layer];if(!lane)return;
+    const ctx=this.ctx;
+    if(e.kind==='harmony'){this.setHarmony(e.notes,t,e.amp,e.crossfade,e.dur);return;}
+    if(e.layer==='air'||e.layer==='bass'){
+      const env=ctx.createGain(), filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=e.layer==='bass'?460:1500;filter.Q.value=.2;
+      env.connect(filter);filter.connect(lane.input);
+      const attack=e.layer==='air'?1.65:.13,release=e.layer==='air'?1.55:1.15;
+      const duration=Math.max(attack+release+.05,e.dur);
+      this.envelope(env,t,e.amp*.68,attack,Math.max(.01,duration-attack-release),release);
+      // Detuned oscillators are used only for the ambient bed, never for the melody.
+      const types=e.layer==='air'?['sine','sine']:['sine','triangle'];
+      types.forEach((type,i)=>{
+        const osc=ctx.createOscillator(),level=ctx.createGain();osc.type=type;osc.frequency.value=mtof(e.note)*(i&&e.layer==='air'?2:1);osc.detune.value=e.layer==='air'?(i?1.5:-1.5):0;
+        level.gain.value=i?(e.layer==='air'?.18:.10):.82;osc.connect(level);level.connect(env);osc.start(t);
+        // Shared envelope nodes stay connected until the last oscillator ends.
+        this.track(osc,i===types.length-1?[level,env,filter]:[level],t+duration+.025);
+      });
+    }else if(e.layer==='mechanics'){
+      const env=ctx.createGain(),filter=ctx.createBiquadFilter(),src=ctx.createBufferSource();
+      filter.type='bandpass';filter.frequency.value=e.kind==='wood'?540:1650;filter.Q.value=e.kind==='wood'?3.7:1.1;
+      src.buffer=this.tickNoise;src.connect(filter);filter.connect(env);env.connect(lane.input);
+      this.envelope(env,t,e.amp*.55,.003,.006,e.kind==='wood'?.13:.055);src.start(t);this.track(src,[filter,env],t+.2);
+    }else{
+      const chosen=this.choose(e.layer,e.note);const src=ctx.createBufferSource(), env=ctx.createGain(),filter=ctx.createBiquadFilter();
+      src.buffer=chosen.buffer;const rate=Math.pow(2,(e.note-chosen.root)/12);src.playbackRate.value=rate;
+      filter.type='lowpass';filter.frequency.value=({clarinet:4100,piano:3800,kalimba:4300,glass:3500})[e.layer];filter.Q.value=.25;
+      src.connect(filter);filter.connect(env);env.connect(lane.input);
+      const avail=Math.max(.05,(chosen.buffer.duration-chosen.offset)/rate);
+      const attack=e.layer==='clarinet'?.055:e.layer==='glass'?.10:.004;
+      const desired=e.layer==='clarinet'?e.dur+.45:e.dur+1.25;
+      const length=Math.min(avail-.01,Math.max(attack+.06,desired));
+      const release=Math.min(length*.35,e.layer==='clarinet'?.40:.8),hold=Math.max(.005,length-attack-release);
+      this.envelope(env,t,e.amp*chosen.normalization,attack,hold,release);
+      src.start(t,chosen.offset);this.track(src,[env,filter],t+length+.025);
+    }
+    this.history.push({time:t,layer:e.layer,note:e.note,amp:e.amp,duration:e.dur});
+    if(this.history.length>512)this.history.splice(0,128);
+  }
+  update(gains,pos,state,trims,mutes,solo){
+    const t=this.ctx.currentTime;
+    for(const l of C.LAYERS){
+      const n=this.layerNodes[l.id];
+      const audible=!mutes[l.id]&&(!solo||solo===l.id);
+      const value=gains[l.id]*(trims[l.id]??1)*(audible?1:0);
+      fade(n.gain.gain,value,t,.15);
+      const zone=C.ZONES.find(z=>({greenhouse:['clarinet','kalimba'],archive:['piano'],observatory:['glass'],workshop:['mechanics']})[z.id].includes(l.id));
+      const pan=zone?C.clamp((zone.x-pos.x)*.55,-.32,.32):0;
+      fadePan(n.pan.pan,pan,t,.9);
+    }
+    fade(this.master.gain,.70*C.clamp(state.volume),t,.20);
+    fade(this.tone.frequency,6100-1500*state.focus+800*state.warmth,t,1.6);
+    fade(this.reverbGain.gain,.23+.16*state.mystery,t,2.5);
+  }
+  meter(){
+    const values={};
+    for(const l of C.LAYERS){const n=this.layerNodes[l.id];n.meter.getFloatTimeDomainData(n.data);let e=0;for(const v of n.data)e+=v*v;values[l.id]=Math.sqrt(e/n.data.length);}
+    this.outputMeter.getFloatTimeDomainData(this.meterData);let peak=0,sum=0;for(const v of this.meterData){peak=Math.max(peak,Math.abs(v));sum+=v*v;}
+    return {layers:values,peak,rms:Math.sqrt(sum/this.meterData.length)};
+  }
+  setVolume(v,tau=.3){fade(this.master.gain,.70*C.clamp(v),this.ctx.currentTime,tau);}
+  dispose(){for(const src of this.active){try{src.stop();}catch(_){}}this.active.clear();this.bedVoices.clear();this.bedStarted=false;this.master.disconnect();}
+}
+function fadePan(param,target,time,tau){param.setTargetAtTime(target,time,tau);}
+root.MusicAudio={Engine,prepareSample,syntheticSample,estimatePitch,fade};
+})(globalThis);
+</script>
+<script>/* UI, sample acquisition, spatial transport, and visualisation.
+ * No analytics, cookies, microphone access, API keys, or remote code.
+ * SPDX-License-Identifier: MIT */
+(function(){
+'use strict';
+const C=MusicCore,A=MusicAudio,$=id=>document.getElementById(id);
+const originalHTML='<!doctype html>\n'+document.documentElement.outerHTML;
+const manifest=JSON.parse($('sample-manifest').textContent), embedded=JSON.parse($('embedded-samples').textContent);
+const bytes=new Map(), samples=new Map(), sampleErrors=new Map(), controllers=new Set();
+const pos={x:.50,y:.51},goal={x:.50,y:.51},target={...C.DEFAULT},state={...C.DEFAULT};
+const trims=Object.fromEntries(C.LAYERS.map(l=>[l.id,1])),muted=Object.fromEntries(C.LAYERS.map(l=>[l.id,false]));
+let solo=null,seed=314159,pendingSeed=null,ctx=null,engine=null,bank={},playing=false,loading=false,session=0;
+let nextStep=0,epoch=0,ticker=null,barState={...state},autoWalk=false,showFields=false,autoIndex=0,autoHold=0;
+let discoveryQueued=false,lastDiscovery=-999,recording=null,recordChunks=[],toastTimer=null;
+let mixNow=C.gains(pos,state),desiredMix={...mixNow},lastFrame=performance.now(),lastAudioUpdate=0,lastUI=0;
+let pointerDown=false,hasStarted=false,trail=[],lastPos={...pos},totalEvents=0,currentSource='none';
+const keys=new Set(),eventLog=[],reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const tour=[{x:.22,y:.29},{x:.24,y:.77},{x:.77,y:.75},{x:.77,y:.25},{x:.50,y:.51}];
+function toast(text){$('toast').textContent=text;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4800);}
+function warn(text){$('warning').textContent=text;$('warning').hidden=!text;}
+function download(name,data,type='application/json'){
+  const blob=data instanceof Blob?data:new Blob([data],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+function bufferBase64(buffer){const d=new Uint8Array(buffer);let str='';for(let i=0;i<d.length;i+=32768)str+=String.fromCharCode(...d.subarray(i,i+32768));return btoa(str);}
+function fromBase64(s){const raw=atob(s),d=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)d[i]=raw.charCodeAt(i);return d.buffer;}
+function paths(meta){const p=meta.path.split('/').map(encodeURIComponent).join('/');return [`https://raw.githubusercontent.com/${meta.repo}/${meta.ref}/${p}`,`https://cdn.jsdelivr.net/gh/${meta.repo}@${meta.ref}/${p}`];}
+async function verifyBlob(data,meta){
+  if(data.byteLength!==meta.bytes)throw new Error('Размер файла не совпадает с манифестом');
+  if(!globalThis.crypto?.subtle)return; // Web Crypto is not exposed in some local-file contexts.
+  const prefix=new TextEncoder().encode(`blob ${data.byteLength}\0`),joined=new Uint8Array(prefix.length+data.byteLength);
+  joined.set(prefix);joined.set(new Uint8Array(data),prefix.length);
+  const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-1',joined)),v=>v.toString(16).padStart(2,'0')).join('');
+  if(hash!==meta.blob)throw new Error('Контрольная сумма WAV не совпадает с зафиксированным источником');
+}
+async function fetchSample(meta,token){
+  if(samples.has(meta.id))return samples.get(meta.id);
+  let raw=bytes.get(meta.id),error=null;
+  if(!raw&&embedded[meta.id])raw=fromBase64(embedded[meta.id]);
+  if(!raw){
+    for(const url of paths(meta)){
+      if(token!==session)throw new Error('Загрузка отменена');
+      const abort=new AbortController();controllers.add(abort);const timer=setTimeout(()=>abort.abort(),9000);
+      try{
+        const response=await fetch(url,{signal:abort.signal,mode:'cors',credentials:'omit',cache:'force-cache',referrerPolicy:'no-referrer'});
+        if(!response.ok)throw new Error('HTTP '+response.status);
+        const candidate=await response.arrayBuffer();await verifyBlob(candidate,meta);raw=candidate;break;
+      }catch(e){error=e;}finally{clearTimeout(timer);controllers.delete(abort);}
+    }
+  }
+  if(!raw)throw error||new Error('WAV недоступен');
+  if(token!==session)throw new Error('Загрузка отменена');
+  await verifyBlob(raw,meta);
+  const decoded=await ctx.decodeAudioData(raw.slice(0));
+  if(token!==session)throw new Error('Загрузка отменена');
+  const prepared=A.prepareSample(ctx,decoded,meta);bytes.set(meta.id,raw);samples.set(meta.id,prepared);sampleErrors.delete(meta.id);
+  return prepared;
+}
+function rebuildBank(useSamples){
+  bank={};if(useSamples)for(const [id,sample]of samples){const meta=manifest.samples.find(m=>m.id===id);(bank[meta.instrument]??=[]).push(sample);}
+}
+async function ensureContext(){
+  if(!ctx){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw new Error('В этом браузере нет Web Audio API. Откройте HTML в современном браузере.');ctx=new Audio({latencyHint:'interactive'});}
+  await ctx.resume();
+}
+function updateSourceLabels(){
+  for(const layer of C.LAYERS){const tag=$('source-'+layer.id);tag.textContent=(bank[layer.id]||[]).length?'WAV':'синтез';tag.title=(bank[layer.id]||[]).length?'Реальная инструментальная запись CC0':'Синтезированный тембр';}
+  const used=Object.values(bank).reduce((s,a)=>s+a.length,0);
+  const badge=$('audioBadge');badge.classList.toggle('warn',hasStarted&&used<manifest.samples.length);
+  if(!hasStarted)badge.textContent='Готово к исследованию';
+  else if(!playing)badge.textContent='Пауза';
+  else badge.textContent=used===manifest.samples.length?'CC0-семплы + синтез':used?`${used}/6 WAV · смешанная палитра`:'Синтетическая палитра';
+  $('offline').disabled=bytes.size!==manifest.samples.length;
+  $('record').disabled=!playing||!engine?.recordDestination||typeof MediaRecorder==='undefined';
+  for(const meta of manifest.samples){
+    const line=$('asset-state-'+meta.id),sample=samples.get(meta.id);
+    line.textContent=sample?'загружен':sampleErrors.has(meta.id)?'недоступен':'не загружен';
+    line.style.color=sample?'var(--green)':sampleErrors.has(meta.id)?'var(--red)':'var(--dim)';
+    if(sample)line.title=`Root MIDI: ${sample.root.toFixed(2)}${sample.estimated?' · оценка высоты уточнена':' · из манифеста'}`;
+    $('audition-'+meta.id).disabled=!engine||!playing;
+  }
+}
+async function start(mode){
+  const token=++session;for(const a of controllers)a.abort();controllers.clear();loading=mode==='samples';
+  $('startSamples').disabled=true;$('loadbar').hidden=mode!=='samples';$('loadStatus').textContent=mode==='samples'?'Загружаю инструментальную палитру…':'';
+  $('startSynth').textContent=loading?'Начать сейчас без семплов':'Без интернета · синтетическая палитра';
+  try{
+    await ensureContext();
+    if(mode==='samples'){
+      let done=0;
+      await Promise.all(manifest.samples.map(async meta=>{
+        try{await fetchSample(meta,token);}catch(e){if(token===session)sampleErrors.set(meta.id,String(e.message||e));}
+        if(token===session){done++;$('loadfill').style.width=`${done/manifest.samples.length*100}%`;$('loadStatus').textContent=`Обработано ${done} из ${manifest.samples.length} · загружено ${samples.size}`;updateSourceLabels();}
+      }));
+    }
+    if(token!==session)return;
+    if(engine){clearInterval(ticker);engine.dispose();}
+    rebuildBank(mode==='samples');engine=new A.Engine(ctx,bank);currentSource=mode;hasStarted=true;playing=true;loading=false;nextStep=0;epoch=ctx.currentTime+.20;barState={...state};totalEvents=0;
+    $('onboard').hidden=true;$('transport').disabled=false;$('transport').textContent='Ⅱ Пауза';$('startSamples').disabled=false;
+    if(mode==='samples'&&samples.size<manifest.samples.length)warn(`Загружено ${samples.size} из 6 WAV. Для недоступных инструментов используется синтез — это не оригинальные семплы. Повторить загрузку можно в разделе источников.`);
+    else if(mode==='synth')warn('Сейчас работает автономная синтетическая палитра. Пространственный микшер и музыкальные правила те же; акустические WAV можно загрузить в разделе источников.');else warn('');
+    engine.update(mixNow,pos,state,trims,muted,solo);schedule();ticker=setInterval(schedule,25);updateSourceLabels();$('map').focus({preventScroll:true});
+  }catch(e){
+    if(token!==session)return;loading=false;playing=false;$('loadStatus').textContent=String(e.message||e);$('startSamples').disabled=false;$('startSynth').disabled=false;warn('Не удалось запустить звук: '+String(e.message||e));
+  }
+}
+function schedule(){
+  if(!playing||!ctx||!engine)return;
+  const now=ctx.currentTime;
+  // Recover after a stalled main thread without firing a burst of late notes.
+  if(epoch+nextStep*C.STEP<now-.30){
+    nextStep=Math.ceil((now-epoch)/C.STEP);barState={...state};
+    // A missed boundary must not strand the persistent bed in the old harmony.
+    // Resynchronise once, not a burst of all missed notes.
+    if(nextStep%64!==0){
+      const event=C.harmonyEvent(nextStep,barState);
+      const nextBoundary=epoch+(Math.floor(nextStep/64)+1)*64*C.STEP;
+      // Recover with a shorter crossfade if necessary, so it completes BEFORE
+      // the next scheduled change (and cannot overlap an AudioParam curve).
+      event.crossfade=Math.min(event.crossfade,Math.max(.08,nextBoundary-now-.08));
+      engine.play(event,now+.01);
+    }
+  }
+  while(epoch+nextStep*C.STEP<now+.18){
+    const when=epoch+nextStep*C.STEP;
+    if(nextStep%16===0)barState={...state};
+    if(nextStep%64===0&&pendingSeed!==null){seed=pendingSeed;pendingSeed=null;toast('Новая вариация вступила на границе фразы.');}
+    const events=C.planStep(nextStep,barState,seed);
+    if(discoveryQueued&&nextStep%16===0){
+      const h=C.harmonyAt(nextStep);events.push({layer:'glass',note:h.tones[2]+12,amp:.23,dur:2*C.BEAT},{layer:'piano',note:h.tones[0],amp:.23,dur:2*C.BEAT,delay:.10});discoveryQueued=false;toast('Открытие вплелось в текущую гармонию.');
+    }
+    for(const e of events){engine.play(e,when);totalEvents++;}
+    nextStep++;
+  }
+}
+async function pause(reason=''){
+  if(!playing)return;playing=false;clearInterval(ticker);keys.clear();
+  if(recording)stopRecording();
+  const local=ctx;engine?.setVolume(0,.06);$('transport').textContent='▶ Продолжить';updateSourceLabels();
+  await new Promise(r=>setTimeout(r,220));if(!playing&&local?.state==='running')await local.suspend();
+  if(reason)toast(reason);
+}
+async function resume(){
+  if(!hasStarted)return;
+  try{await ensureContext();playing=true;engine.update(mixNow,pos,state,trims,muted,solo);schedule();clearInterval(ticker);ticker=setInterval(schedule,25);$('transport').textContent='Ⅱ Пауза';updateSourceLabels();}catch(e){warn(e.message);}
+}
+function setParameter(id,value){
+  if(!Number.isFinite(value))return;
+  if(id==='chordFade'){
+    target.chordFade=C.clamp(value,2,8);state.chordFade=target.chordFade;
+    $('chordFade').value=target.chordFade;$('chordFadeOut').textContent=target.chordFade.toFixed(1)+' с';return;
+  }
+  target[id]=C.clamp(value);const input=$(id);if(input){input.value=Math.round(value*100);$(id+'Out').textContent=Math.round(value*100)+'%';}
+}
+function setFocus(value){target.focus=value?1:0;$('focus').setAttribute('aria-pressed',String(Boolean(value)));$('focus').querySelector('b').textContent=value?'вкл.':'выкл.';}
+function go(x,y){goal.x=C.clamp(x,.055,.945);goal.y=C.clamp(y,.09,.93);}
+function stopAuto(){autoWalk=false;$('walk').setAttribute('aria-pressed','false');}
+function preset(name){
+  stopAuto();const presets={quiet:{zone:0,warmth:.72,power:.12,mystery:.40,activity:.16},night:{zone:3,warmth:.14,power:.73,mystery:.82,activity:.43},alive:{zone:0,warmth:.96,power:.70,mystery:.38,activity:.52}};
+  const p=presets[name];for(const id of ['warmth','power','mystery','activity'])setParameter(id,p[id]);setFocus(false);go(C.ZONES[p.zone].x,C.ZONES[p.zone].y);toast('Состояние меняется постепенно. Музыкальное время продолжается.');
+}
+function takeSnapshot(){return {version:2,revision:'smooth-chords',title:'The Institute Music Lab',seed,pendingSeed,position:{...pos},target:{...target},smoothedState:{...state},mixer:{trims:{...trims},muted:{...muted},solo},musicalStep:hasStarted?Math.max(0,Math.floor((ctx.currentTime-epoch)/C.STEP)):0,source:currentSource,samples:Array.from(samples.keys()),eventsScheduled:totalEvents,playing};}
+function startRecording(){
+  if(recording){stopRecording();return;}
+  if(!playing||!engine?.recordDestination||typeof MediaRecorder==='undefined')return;
+  try{
+    const mime=['audio/webm;codecs=opus','audio/webm','audio/mp4'].find(m=>MediaRecorder.isTypeSupported(m));
+    recordChunks=[];recording=new MediaRecorder(engine.recordDestination.stream,mime?{mimeType:mime}:{});
+    recording.ondataavailable=e=>{if(e.data.size)recordChunks.push(e.data);};
+    recording.onstop=()=>{const actual=recordChunks[0]?.type||mime||'audio/webm';download('institute-music-session.'+(actual.includes('mp4')?'m4a':'webm'),new Blob(recordChunks,{type:actual}));recordChunks=[];};
+    recording.start();$('record').textContent='■ Завершить запись';$('record').classList.add('recording');toast('Записывается только музыка демо. Микрофон не используется.');
+  }catch(e){warn('Запись недоступна в этом браузере: '+e.message);recording=null;}
+}
+function stopRecording(){if(recording){recording.stop();recording=null;}$('record').textContent='● Записать';$('record').classList.remove('recording');}
+function buildUI(){
+  for(const z of C.ZONES){const b=document.createElement('button');b.textContent=z.name;b.id='zone-'+z.id;b.addEventListener('click',()=>{stopAuto();go(z.x,z.y);$('map').focus({preventScroll:true});});$('zoneButtons').append(b);}
+  for(const l of C.LAYERS){
+    const div=document.createElement('div');div.className='channel';div.style.setProperty('--ch',l.color);
+    div.innerHTML=`<div class="channel-top"><i></i>${l.name}</div><div class="channel-role">${l.role}</div><div class="level-number" id="gain-${l.id}">0<span>%</span></div><div class="lane-meter"><i id="meter-${l.id}"></i><em id="target-${l.id}"></em></div><input type="range" min="0" max="140" value="100" id="trim-${l.id}" aria-label="Ручная громкость: ${l.name}"><div class="channel-bottom"><button id="mute-${l.id}" aria-pressed="false" aria-label="Выключить: ${l.name}">M</button><button id="solo-${l.id}" aria-pressed="false" aria-label="Слушать отдельно: ${l.name}">S</button><span class="source" id="source-${l.id}">синтез</span></div>`;
+    $('mixerGrid').append(div);
+    $('trim-'+l.id).addEventListener('input',e=>trims[l.id]=Number(e.target.value)/100);
+    $('mute-'+l.id).addEventListener('click',()=>{muted[l.id]=!muted[l.id];$('mute-'+l.id).setAttribute('aria-pressed',String(muted[l.id]));});
+    $('solo-'+l.id).addEventListener('click',()=>{solo=solo===l.id?null:l.id;for(const x of C.LAYERS)$('solo-'+x.id).setAttribute('aria-pressed',String(solo===x.id));});
+  }
+  for(const m of manifest.samples){
+    const row=document.createElement('div');row.className='asset-row';
+    const info=document.createElement('div'),a=document.createElement('a');a.href=`https://github.com/${m.repo}/blob/${m.ref}/`+m.path.split('/').map(encodeURIComponent).join('/');a.target='_blank';a.rel='noopener noreferrer';a.textContent=m.name;info.append(a);
+    const file=document.createElement('small');file.textContent=m.path;info.append(file);
+    const actions=document.createElement('div');actions.className='asset-actions';const status=document.createElement('span');status.id='asset-state-'+m.id;status.className='asset-state';status.textContent='не загружен';actions.append(status);
+    const audition=document.createElement('button');audition.id='audition-'+m.id;audition.className='small';audition.textContent='Послушать';audition.disabled=true;audition.addEventListener('click',()=>{
+      if(!playing||!engine)return;const sample=samples.get(m.id);const h=C.harmonyAt(Math.max(0,nextStep-1));
+      // Auditions remain in the current key, rather than adding the file's original Bb etc.
+      const n=h.tones[2]+(m.instrument==='glass'||m.instrument==='kalimba'?12:0);
+      const list=bank[m.instrument];if(sample)bank[m.instrument]=[sample];engine.play({layer:m.instrument,note:n,amp:.30,dur:1.5*C.BEAT},ctx.currentTime+.05);if(sample)bank[m.instrument]=list;
+      toast(sample?'Семпл сыгран в текущей гармонии.':'Сейчас звучит синтетическая замена этого инструмента.');
+    });actions.append(audition);row.append(info,actions);$('assetList').append(row);
+  }
+}
+buildUI();
+for(const id of ['warmth','power','mystery','activity','volume'])$(id).addEventListener('input',e=>setParameter(id,Number(e.target.value)/100));
+$('transition').addEventListener('input',e=>{target.transition=Number(e.target.value);$('transitionOut').textContent=target.transition.toFixed(1)+' с';});
+$('chordFade').addEventListener('input',e=>setParameter('chordFade',Number(e.target.value)));
+$('startSamples').addEventListener('click',()=>start('samples'));$('startSynth').addEventListener('click',()=>start('synth'));
+$('transport').addEventListener('click',()=>playing?pause():resume());$('focus').addEventListener('click',()=>{setFocus(!target.focus);toast(target.focus?'Музыка отступает. Пространство остаётся слышимым.':'Музыкальные слои постепенно возвращаются.');});
+$('walk').addEventListener('click',()=>{autoWalk=!autoWalk;$('walk').setAttribute('aria-pressed',String(autoWalk));autoHold=0;if(autoWalk){autoIndex=0;go(tour[0].x,tour[0].y);}});
+$('fields').addEventListener('click',()=>{showFields=!showFields;$('fields').setAttribute('aria-pressed',String(showFields));});
+$('repair').addEventListener('click',()=>{setParameter('warmth',.96);setParameter('power',Math.max(target.power,.58));toast('Отопление восстановлено: тепло и музыкальные слои возвращаются постепенно.');});
+$('discovery').addEventListener('click',()=>{if(!playing){toast('Сначала включите музыку.');return;}if(ctx.currentTime-lastDiscovery<16){toast('Дадим предыдущему открытию прозвучать.');return;}lastDiscovery=ctx.currentTime;discoveryQueued=true;toast('Акцент запланирован на начало следующего такта.');});
+$('resetMix').addEventListener('click',()=>{solo=null;for(const l of C.LAYERS){trims[l.id]=1;muted[l.id]=false;$('trim-'+l.id).value=100;$('mute-'+l.id).setAttribute('aria-pressed','false');$('solo-'+l.id).setAttribute('aria-pressed','false');}});
+$('newSeed').addEventListener('click',()=>{const n=Math.floor(Math.random()*2147483646)+1;if(playing){pendingSeed=n;toast('Новый вариант вступит в начале следующей четырёхтактовой фразы.');}else{seed=n;toast('Новая вариация подготовлена.');}});
+$('exportState').addEventListener('click',()=>download('institute-music-state.json',JSON.stringify(takeSnapshot(),null,2)));
+$('offline').addEventListener('click',()=>{
+  if(bytes.size!==manifest.samples.length){toast('Сначала загрузите все шесть WAV.');return;}
+  const data=Object.fromEntries(Array.from(bytes,([id,b])=>[id,bufferBase64(b)]));
+  const html=originalHTML.replace(/(<script id="embedded-samples" type="application\/json">)[\s\S]*?(<\/script>)/,(_,a,b)=>a+JSON.stringify(data)+b);
+  download('institute-music-lab-offline.html',html,'text/html;charset=utf-8');toast('Создан HTML со встроенными WAV. Ему больше не нужна сеть.');
+});
+$('record').addEventListener('click',startRecording);
+$('retrySamples').addEventListener('click',async()=>{await pause();$('onboard').hidden=false;$('sources').open=false;$('onboard').scrollIntoView({behavior:reduceMotion?'instant':'smooth',block:'center'});start('samples');});
+for(const b of document.querySelectorAll('[data-preset]'))b.addEventListener('click',()=>preset(b.dataset.preset));
+if(manifest.samples.every(m=>embedded[m.id])){$('startSamples').textContent='▶ Начать со встроенными семплами';$('introFoot').textContent='Все шесть WAV уже встроены. Интернет не нужен. Звук начнётся после нажатия. Начните с небольшой громкости.';}
+const map=$('map'),mc=map.getContext('2d'),tc=$('timeline').getContext('2d');
+function pointer(e){const r=map.getBoundingClientRect();go((e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);}
+map.addEventListener('pointerdown',e=>{stopAuto();pointerDown=true;map.setPointerCapture(e.pointerId);map.focus({preventScroll:true});pointer(e);e.preventDefault();});
+map.addEventListener('pointermove',e=>{if(pointerDown)pointer(e);});map.addEventListener('pointerup',()=>pointerDown=false);map.addEventListener('pointercancel',()=>pointerDown=false);
+window.addEventListener('keydown',e=>{
+  const form=['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName);if(form)return;
+  if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)){keys.add(e.code);stopAuto();e.preventDefault();}
+  if(e.code==='Space'&&e.target.tagName!=='BUTTON'){if(hasStarted)(playing?pause():resume());e.preventDefault();}
+});
+window.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',()=>{keys.clear();pointerDown=false;});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)pause('Воспроизведение приостановлено: вкладка была скрыта.');});
+function frame(now){
+  const dt=Math.min(.07,(now-lastFrame)/1000);lastFrame=now;
+  for(const id of ['warmth','power','mystery','activity','focus','volume'])state[id]=C.smooth(state[id],target[id],dt,id==='warmth'?4.5:id==='focus'?1.1:id==='volume'?.15:2.3);
+  state.transition=target.transition;state.chordFade=target.chordFade;
+  let dx=(keys.has('KeyD')||keys.has('ArrowRight')?1:0)-(keys.has('KeyA')||keys.has('ArrowLeft')?1:0),dy=(keys.has('KeyS')||keys.has('ArrowDown')?1:0)-(keys.has('KeyW')||keys.has('ArrowUp')?1:0);
+  if(dx||dy){const mag=Math.hypot(dx,dy);pos.x=C.clamp(pos.x+dx/mag*dt*.18,.055,.945);pos.y=C.clamp(pos.y+dy/mag*dt*.22,.09,.93);go(pos.x,pos.y);}
+  else{
+    const distance=Math.hypot(goal.x-pos.x,goal.y-pos.y),amount=Math.min(distance,dt*.15);
+    if(distance>.002){pos.x+=(goal.x-pos.x)/distance*amount;pos.y+=(goal.y-pos.y)/distance*amount;}
+    else if(autoWalk){autoHold+=dt;if(autoHold>2.1){autoIndex=(autoIndex+1)%tour.length;go(tour[autoIndex].x,tour[autoIndex].y);autoHold=0;}}
+  }
+  if(Math.hypot(pos.x-lastPos.x,pos.y-lastPos.y)>.004){trail.push({...pos});lastPos={...pos};if(trail.length>55)trail.shift();}
+  desiredMix=C.gains(pos,state);
+  // transition represents roughly 95% settling time, not the exponential time constant.
+  for(const l of C.LAYERS)mixNow[l.id]=C.smooth(mixNow[l.id],desiredMix[l.id],dt,target.transition/3);
+  if(playing&&ctx&&now-lastAudioUpdate>50){engine.update(mixNow,pos,state,trims,muted,solo);lastAudioUpdate=now;}
+  drawMap(now/1000);
+  if(now-lastUI>90){updateUI();lastUI=now;}
+  requestAnimationFrame(frame);
+}
+function updateUI(){
+  const zone=C.zoneAt(pos),center=Math.hypot(pos.x-.50,(pos.y-.51)*.9)<.11;
+  $('locationTitle').textContent=center?'Центральный атриум':zone.name;
+  for(const z of C.ZONES)$('zone-'+z.id).classList.toggle('current',!center&&zone.id===z.id);
+  $('positionReadout').textContent=`x ${pos.x.toFixed(2)} · y ${pos.y.toFixed(2)}`;
+  const notes={greenhouse:state.warmth>.6?'Оранжерея согревается. Кларнет и калимба постепенно становятся ближе.':'Оранжерея ещё холодна. Попробуйте восстановить тепло.',archive:'Архив оставляет место тишине: мягкое пианино и редкие ответы.',observatory:'Стекло и длинные хвосты создают ощущение открытого пространства.',workshop:'Механизмы подмешивают тихий ритм. Темп и гармония остаются общими.'};
+  $('sceneNote').textContent=target.focus?'Режим сосредоточения: мелодия и ритм отступают, атмосфера сохраняется.':center?'Здесь встречаются музыкальные влияния всех четырёх пространств.':notes[zone.id];
+  const meter=engine&&playing?engine.meter():null;
+  for(const l of C.LAYERS){
+    const gain=mixNow[l.id]*trims[l.id]*(!muted[l.id]&&(!solo||solo===l.id)?1:0);
+    $('gain-'+l.id).innerHTML=`${Math.round(gain*100)}<span>%</span>`;
+    const rms=meter?.layers[l.id]||0;$('meter-'+l.id).style.width=`${C.clamp((20*Math.log10(Math.max(1e-5,rms))+64)/54)*100}%`;
+    $('target-'+l.id).style.left=`${C.clamp(desiredMix[l.id]*trims[l.id])*99}%`;
+  }
+  const db=meter&&meter.rms>1e-6?20*Math.log10(meter.rms):-Infinity;$('levelReadout').textContent=(Number.isFinite(db)?db.toFixed(1):'−∞')+' dBFS RMS';
+  const elapsed=hasStarted?Math.max(0,ctx.currentTime-epoch):0,step=Math.floor(elapsed/C.STEP),h=C.harmonyAt(step);
+  $('harmonyLabel').textContent=h.name;$('phraseLabel').textContent=hasStarted?`Такт ${Math.floor(step/16)+1} · фраза ${Math.floor(step/64)+1}${pendingSeed!==null?' · новая вариация ожидает':''}`:'Общая партитура · ожидает запуска';
+  const beat=Math.floor(elapsed/C.BEAT)%4;Array.from($('beatDots').children).forEach((d,i)=>d.classList.toggle('on',playing&&i===beat));
+  drawTimeline();
+}
+// ------- Canvas cartography: visual symbols, not a collision/navigation demo. -------
+function canvasScale(canvas,context,w,h){const r=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2),pw=Math.round(r.width*dpr),ph=Math.round(r.height*dpr);if(canvas.width!==pw||canvas.height!==ph){canvas.width=pw;canvas.height=ph;}context.setTransform(pw/w,0,0,ph/h,0,0);}
+function roundRect(g,x,y,w,h,r,fill,stroke){g.beginPath();g.roundRect(x,y,w,h,r);if(fill){g.fillStyle=fill;g.fill();}if(stroke){g.strokeStyle=stroke;g.stroke();}}
+function line(g,x1,y1,x2,y2,color,width=1){g.beginPath();g.strokeStyle=color;g.lineWidth=width;g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke();}
+function circle(g,x,y,r,fill,stroke,width=1){g.beginPath();g.arc(x,y,r,0,Math.PI*2);if(fill){g.fillStyle=fill;g.fill();}if(stroke){g.strokeStyle=stroke;g.lineWidth=width;g.stroke();}}
+function label(g,text,x,y,size,color,serif=false){g.save();const m=g.getTransform();g.translate(x,y);g.scale(1,m.a/m.d);g.textAlign='center';g.fillStyle=color;g.font=`${size}px ${serif?'Georgia':'system-ui, sans-serif'}`;g.fillText(text,0,0);g.restore();}
+function gear(g,x,y,r,angle,color){g.save();g.translate(x,y);g.rotate(angle);g.strokeStyle=color;g.lineWidth=1.6;g.beginPath();for(let k=0;k<48;k++){const a=k/48*Math.PI*2,rr=k%4<2?r:r*.83;(k?g.lineTo.bind(g):g.moveTo.bind(g))(Math.cos(a)*rr,Math.sin(a)*rr);}g.closePath();g.stroke();circle(g,0,0,r*.55,null,color);circle(g,0,0,3,color);g.restore();}
+function drawMap(t){
+  canvasScale(map,mc,960,565);const g=mc;g.clearRect(0,0,960,565);
+  const bg=g.createRadialGradient(430,245,30,500,290,590);bg.addColorStop(0,'#283a3c');bg.addColorStop(1,'#132024');g.fillStyle=bg;g.fillRect(0,0,960,565);
+  g.lineWidth=.6;
+  for(let x=20;x<960;x+=40)line(g,x,0,x,565,'#65837a0b',.6);
+  for(let y=5;y<565;y+=40)line(g,0,y,960,y,'#65837a0b',.6);
+  // Softly lit paths join a shared central atrium.
+  for(const z of C.ZONES){
+    g.beginPath();g.moveTo(480,288);g.bezierCurveTo(480,288,z.x*960,288,z.x*960,z.y*565);g.strokeStyle='#33494a';g.lineWidth=25;g.stroke();g.strokeStyle='#162b2e';g.lineWidth=21;g.stroke();
+    g.setLineDash([2,10]);g.strokeStyle='#667d6a66';g.lineWidth=1;g.stroke();g.setLineDash([]);
+    const glow=g.createRadialGradient(z.x*960,z.y*565,15,z.x*960,z.y*565,175);glow.addColorStop(0,z.color+'19');glow.addColorStop(1,z.color+'00');g.fillStyle=glow;g.fillRect(z.x*960-175,z.y*565-175,350,350);
+  }
+  if(showFields){for(const z of C.ZONES){
+    const r=z.radius*620,fill=g.createRadialGradient(z.x*960,z.y*565,5,z.x*960,z.y*565,r);fill.addColorStop(0,z.color+'32');fill.addColorStop(1,z.color+'00');circle(g,z.x*960,z.y*565,r,fill,z.color+'44',.8);
+    const f=C.fields(pos.x,pos.y)[z.id];label(g,Math.round(f*100)+'% влияния',z.x*960,z.y*565+(z.y>.5?-88:100),11,z.color);
+  }}
+  circle(g,480,288,81,'#1d30337c','#61746955');circle(g,480,288,73,null,'#9aa98732');circle(g,480,288,40,null,'#a3a58b28');
+  for(let i=0;i<12;i++){const a=i/12*Math.PI*2;line(g,480+Math.cos(a)*65,288+Math.sin(a)*65,480+Math.cos(a)*70,288+Math.sin(a)*70,'#a3a58b55');}
+  label(g,'АТРИУМ',480,194,12,'#a3b4aa');label(g,'одна общая партитура',480,211,10,'#819895');
+  // Greenhouse: glass panes, warm lamps, organically irregular planting tables.
+  const warm=state.warmth;
+  roundRect(g,105,100,218,128,35,'#26443d90','#8daf9688');roundRect(g,113,108,202,112,29,null,'#789a8388');
+  for(let i=0;i<7;i++)line(g,137+i*26,110,137+i*26,216,'#92b69955',1);
+  for(let i=0;i<3;i++)line(g,119,131+i*28,309,131+i*28,'#92b69944',.8);
+  line(g,115,164,313,164,'#bad1a799',1.4);
+  for(let row=0;row<2;row++)for(let i=0;i<5;i++){
+    const x=139+i*37,y=137+row*59;roundRect(g,x-10,y-6,21,12,3,'#6a6550','#aba07f44');
+    for(let j=0;j<3;j++){const a=j/3*Math.PI*2+.7,px=x+Math.cos(a)*7,py=y+Math.sin(a)*6;g.save();g.translate(px,py);g.rotate(a);g.fillStyle=`rgba(${100+warm*25},${132+warm*28},108,.8)`;g.beginPath();g.ellipse(0,0,7,3,0,0,Math.PI*2);g.fill();g.restore();}
+  }
+  for(const x of [135,214,293]){const glow=g.createRadialGradient(x,102,0,x,102,24+warm*10);glow.addColorStop(0,`rgba(236,206,143,${.10+warm*.17})`);glow.addColorStop(1,'#ead5a000');circle(g,x,102,34,glow);circle(g,x,102,2.3,'#ddcea4');}
+  label(g,'ОРАНЖЕРЕЯ',213,65,13,'#b8cfbc');label(g,'кларнет · калимба',213,82,10,'#90a99b');
+  // Observatory: concentric dome and a small telescope.
+  circle(g,739,143,63,'#2e334690','#a6a6c37a');circle(g,739,143,56,null,'#969bb15a');
+  g.strokeStyle='#999eb666';g.lineWidth=1;g.beginPath();g.ellipse(739,143,27,55,-.6,0,Math.PI*2);g.stroke();line(g,691,109,786,178,'#bbc1d171',1);
+  g.save();g.translate(739,143);g.rotate(-.65);roundRect(g,-9,-6,56,12,3,'#686e80','#b6bfcd');roundRect(g,37,-10,11,20,2,'#454c5f','#b6bfcd');g.restore();
+  line(g,739,153,719,180,'#9a9eac',2);line(g,739,153,755,178,'#9a9eac',2);circle(g,739,153,4,'#d0c7a4');
+  for(const [x,y]of [[814,93],[835,126],[827,195],[674,100],[663,173]]){line(g,x-3,y,x+3,y,'#c1bcdf66');line(g,x,y-3,x,y+3,'#c1bcdf66');}
+  label(g,'ОБСЕРВАТОРИЯ',739,48,13,'#c0bbd3');label(g,'стекло · пространство',739,65,10,'#999bb7');
+  // Archive with short book spines, reading desk and a pool of lamplight.
+  roundRect(g,115,366,223,129,9,'#443e3180','#af9e7b70');roundRect(g,122,373,209,115,5,null,'#b2a17d35');
+  for(let shelf=0;shelf<3;shelf++){
+    const y=390+shelf*34;roundRect(g,133,y,131,12,2,'#544c3f','#a3947466');
+    for(let i=0;i<15;i++){const h=7+(i*7+shelf*3)%6,x=138+i*8;line(g,x,y+9,x,y+9-h,i%3?'#bca88488':'#819894bb',3);}
+  }
+  roundRect(g,281,410,34,33,3,'#7e6c53','#b4a083');const lamp=g.createRadialGradient(295,425,0,295,425,37);lamp.addColorStop(0,'#e6c8853a');lamp.addColorStop(1,'#e6c88500');circle(g,295,425,37,lamp);circle(g,296,424,4,'#d8c08d');
+  label(g,'АРХИВ',224,527,13,'#cec0a0');label(g,'пианино · память',224,544,10,'#a29980');
+  // Workshop: gears driven by the power parameter, and a heating loop.
+  roundRect(g,635,363,216,134,9,'#493b3180','#b8957377');roundRect(g,643,371,200,118,6,null,'#9f83603b');
+  const angle=reduceMotion?0:t*(.035+.13*state.power);gear(g,707,420,32,angle,'#c3a888');gear(g,759,447,26,-angle*1.23+.16,'#af987d');gear(g,779,395,18,angle*1.7,'#d0b393');
+  g.beginPath();g.moveTo(667,477);g.lineTo(667,386);g.lineTo(817,386);g.lineTo(817,470);g.strokeStyle='#aa806555';g.lineWidth=7;g.stroke();g.strokeStyle=`rgba(196,153,110,${.2+warm*.6})`;g.lineWidth=2;g.stroke();
+  circle(g,817,443,11,'#313e3c','#bdad8d');line(g,810,443,824,443,'#c3b194',1.5);line(g,817,436,817,450,'#c3b194',1.5);
+  label(g,'МАСТЕРСКАЯ',745,529,13,'#cbb295');label(g,'механика · пульс',745,546,10,'#a9937c');
+  // Path history and destination. Canvas is an audio-field sketch, intentionally walkable everywhere.
+  for(let i=0;i<trail.length;i++){const p=trail[i];circle(g,p.x*960,p.y*565,1.2,`rgba(220,207,159,${i/trail.length*.23})`);}
+  if(Math.hypot(pos.x-goal.x,pos.y-goal.y)>.02){const x=goal.x*960,y=goal.y*565;circle(g,x,y,8,null,'#d7c49b88');line(g,x-13,y,x+13,y,'#d7c49b44');line(g,x,y-13,x,y+13,'#d7c49b44');}
+  const x=pos.x*960,y=pos.y*565,halo=g.createRadialGradient(x,y,0,x,y,39);halo.addColorStop(0,'#efdba733');halo.addColorStop(1,'#efdba700');circle(g,x,y,39,halo);
+  circle(g,x,y+1,13,'#152829','#d6c79b',1.4);circle(g,x,y-4,3.3,'#f0e6c8');
+  g.fillStyle='#daceaa';g.beginPath();g.moveTo(x-5,y+7);g.quadraticCurveTo(x-5,y,x,y);g.quadraticCurveTo(x+5,y,x+5,y+7);g.closePath();g.fill();
+  // Slowly drifting dust; no fabricated audio meters or fake note events.
+  if(!reduceMotion)for(let i=0;i<21;i++){const px=(C.rand(456,i,0)*960+t*(.6+C.rand(456,i,1)))%960,py=(C.rand(456,i,2)*565+Math.sin(t*.11+i)*5)%565;circle(g,px,py,.6,'#d1cf9c3d');}
+  label(g,'N',920,40,9,'#829593');line(g,920,50,920,68,'#82959377');line(g,915,55,920,50,'#82959377');line(g,925,55,920,50,'#82959377');
+}
+function drawTimeline(){
+  const canvas=$('timeline'),g=tc;canvasScale(canvas,g,900,56);g.clearRect(0,0,900,56);
+  for(let i=0;i<7;i++)line(g,0,7+i*7,900,7+i*7,'#a5bbb411',.5);
+  if(!engine||!hasStarted)return;
+  const now=ctx.currentTime,windowSeconds=16;
+  for(const e of engine.history){const age=now-e.time;if(age<0||age>windowSeconds)continue;const li=C.LAYERS.findIndex(l=>l.id===e.layer),x=900-age/windowSeconds*900,w=Math.max(3,Math.min(70,e.duration/windowSeconds*900));g.globalAlpha=.18+.72*(1-age/windowSeconds);roundRect(g,x,4+li*7,w,3.2,1.5,C.LAYERS[li].color);}
+  g.globalAlpha=1;line(g,899,0,899,56,'#d6be9166');
+}
+updateSourceLabels();requestAnimationFrame(frame);
+// Public inspection API for reproducibility and automated browser tests.
+window.Lab={
+  snapshot:takeSnapshot, manifest, core:C,
+  setPosition:(x,y)=>{stopAuto();pos.x=C.clamp(x,.055,.945);pos.y=C.clamp(y,.09,.93);go(pos.x,pos.y);},
+  setParameter, setFocus,
+  debug:()=>({activeVoices:engine?.active.size||0,bedNotes:engine?Array.from(engine.bedVoices.keys()):[],bedTransition:engine?.bedTransition,nextStep,totalEvents,playing,sampleCount:samples.size,source:currentSource,gains:{...mixNow},errors:Object.fromEntries(sampleErrors),audioState:ctx?.state,meter:engine?.meter()}),
+  async renderOffline(seconds=32){
+    const O=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+    const offline=new O(2,Math.ceil(seconds*44100),44100),testEngine=new A.Engine(offline,{});
+    const scene={...C.DEFAULT,warmth:.67,power:.48,mystery:.51,activity:.46};
+    for(let step=0;step*C.STEP<seconds-2;step++){
+      const time=step*C.STEP,p={x:.25+.50*(time/seconds),y:.30+.43*Math.sin(time/seconds*Math.PI/2)},gains=C.gains(p,scene);
+      for(const l of C.LAYERS)testEngine.layerNodes[l.id].gain.gain.setTargetAtTime(gains[l.id],time,.8);
+      testEngine.master.gain.setTargetAtTime(.70*.52,time,.2);
+      for(const e of C.planStep(step,scene,314159))testEngine.play(e,time+.03);
+    }
+    return await offline.startRendering();
+  }
+};
+})();
+</script>
+</body>
+</html>
